@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" src="../img/buho.png">
     <link rel="stylesheet" href="../css/style_main.css">
-    <title>Olwpays</title>
+    <title>Owlpays</title>
     <script>
       var clic = 1;
       function mostrar(){ 
@@ -54,7 +54,7 @@
         <header class="head">
             <div class="logo">
                 <img src="../img/buho.png" alt="buho">
-                <label>OlwPays</label>
+                <label>OwlPays</label>
             </div>
             <div class="user">
                 <div class="name">
@@ -87,7 +87,6 @@
                     </ul>
                 </div>
                 <iframe class="scro" src="proves.php?id='<?php echo $code ?>'" frameBorder="0" name="formularios"></iframe>
-               <!--  frameBorder="0" scrolling="no" -->
             </div>
         </section>
     </section>

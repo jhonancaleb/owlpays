@@ -17,22 +17,6 @@ body{
     height: 90px;
     background-image: linear-gradient(rgb(17, 33, 231), rgb(66, 84, 101));
 }
-.scro{
-    height: 70em;
-}
-.scro::-webkit-scrollbar {
-   /*  -webkit-appearance: none; */
-    background:none;
-}
-.scro::-webkit-scrollbar-thumb {
-    background: #300285;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
 .logo{
     position:relative;
     padding:1em 10%;
@@ -230,6 +214,18 @@ body{
     height:40em;
     margin:2em;
 }
+.container iframe::-webkit-scrollbar {
+    /*  -webkit-appearance: none; */
+     background:none;
+ }
+.container iframe::-webkit-scrollbar-thumb {
+    background: #300285;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+ }
 .menu{
     position: relative;
     font-family: 'Righteous', cursive;
