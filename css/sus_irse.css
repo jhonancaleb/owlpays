@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Righteous&display=swap'); 
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Righteous', cursive;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color:rgba(0, 0, 0, 0.5); ;
+    width: 100%;
+    height:100vh;
+}
+.con-margin{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width:63.3em;
+    height:auto;
+    overflow:hidden;
+    border-radius: 20px;
+} 
+.con-planes{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position:relative;
+    width:60em;
+    height:30em;
+    background-color:white;
+    border-radius:20px;
+    padding:1em;
+    margin-left:63.3em;
+    transition: all 0.5s; 
+}
+.datos{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.datos img{
+    width:2em;
+    height:2em;
+    margin:3px;
+}
+.planes{
+    position:relative;
+    width: 60em;
+    height: 30em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px; 
+}
+.planes .plan{
+    border: 2px solid #30b371;
+    width: 30%;
+    height: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius:5em;
+}
+.plan .btn_comprar{
+    border-radius:10px;
+    font-family: 'Poppins', cursive;
+    cursor: pointer;
+    padding:10px 20px;
+    margin-top:2em;
+    color:white; text-decoration:none;
+    border:none;
+    transition:all 0.3s;
+    background-image: linear-gradient(rgb(170, 17, 231), rgb(53, 23, 226),rgb(23, 226, 216));
+}
+.plan .btn_comprar:hover{
+    background-image: linear-gradient(rgb(23, 226, 216),rgb(170, 17, 231), rgb(53, 23, 226));
+}
+.plan h1{
+    margin:1em;
+    color:#0fac97;
+    font-family: "Century Gothic";
+    font-size:45px;
+}
+.con-elegido{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position:relative;
+    width:60em;
+    height:30em;
+    background-color:white;
+    border-radius:20px;
+    padding:1em;
+    transition: all 0.5s;
+}
+.con-elegido a{
+    color:#7c7b7b;
+    font-size:20px;
+    font-family: 'Poppins', cursive;
+    cursor:pointer;
+    text-decoration: underline;
+}
+.con-elegido iframe{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position:relative;
+    width:60em;
+    height:22em;
+    background-color:white;
+    border-radius:20px;
+    padding:1em;
+    overflow:hidden;
+}
+.con-elegido .volver{
+    cursor:pointer;
+    display:flex;justify-content: center; align-items: center;
+    width: 20em; height:5em;
+}

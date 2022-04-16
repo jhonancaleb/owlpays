@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Righteous&display=swap');
+
+*{
+    font-family: 'Righteous', cursive;
+    margin:3px;padding:0;
+}
+.datos{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow:hidden;
+}
+fieldset{
+    border-radius:10px;
+    border:2px solid #50b165;
+    width:20em;
+    height:3em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+fieldset input[type="text"]{
+    width:22em;
+    height:auto;
+    outline:none;
+    border:none; 
+    color:#090980;
+}
+.datos input[type="submit"]{
+    border-radius:10px;
+    font-family: 'Century Gothic', cursive;
+    font-weight: bold;
+    cursor: pointer;
+    padding:10px 40px;
+    margin-top:2em;
+    color:white; text-decoration:none;
+    border:none;
+    background-image: linear-gradient(rgb(59, 179, 226), rgb(53, 23, 226),rgb(24, 190, 88));
+    transition:all 0.3s;
+}
+.datos input[type="submit"]:hover{
+    background-image: linear-gradient(rgb(23, 226, 216),rgb(170, 17, 231), rgb(53, 23, 226));
+}
+.aviso{
+    position:relative;
+    width:17em;
+    height:8em;
+    border-radius: 2em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#e6c226;
+    color:#196948;
+    top:-12em;
+    margin-left:100em; /*75 perfecto*/
+}
+.aviso .di{
+    width:6em;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.ima img{
+    width:100px;
+    height:100px;
+}
