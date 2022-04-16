@@ -41,8 +41,8 @@
                        <td>'.$id_sus.'</td>
                        <td style="display:flex; gap:1.5em; justify-content:center;align-items:center">
                             <div class="img-opcion" style="width:3em;display:flex; gap:1.5em; justify-content:center;align-items:center">
-                                <img style="cursor:pointer;" onclick="moseli('.$id_sus.')" src="../img/eliminar.png" width=30 height=30  title="Anular suscripción">
-                                <img style="cursor:pointer;" onclick="moscam('.$id_sus.')" src="../img/cambiar.png" width=30 height=30 title="Cambiar plan de suscripción">
+                                <a href="anular.php?id='.$id_sus.'&user='.$code.'"><img src="../img/eliminar.png" width=30 height=30  title="Anular suscripción"></a>
+                                <a href="modificar.php?id='.$id_sus.'&user='.$code.'"><img src="../img/cambiar.png" width=30 height=30 title="Cambiar plan de suscripción"></a>
                             </div>
                         </td>
                        <td>'.$prov.'</td>
