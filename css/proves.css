@@ -1,22 +1,23 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Righteous&display=swap'); 
 body{
     position:relative;
-    /* top:-16px; */
     margin:0;
     padding:0;
+    display:flex;
+    justify-content:center;
 }
 .buscador{
     display:flex;
     position:fixed;
     z-index:100;
     justify-content: center;  
-    align-items: center; 
-    width: 70em;
+    align-items: center; gap:10px;
+    width: 90%;
     height:5em;
-    margin:auto 3em;
+    box-sizing: border-box;
+    margin:0; padding:0 1em;
     background-color:#3F3F3F;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
@@ -63,30 +64,19 @@ input[type="submit"]:hover{
 .container{
     position:relative;
     top:5em;
-    display:inline-block;
-    width:70em;
+    padding:10px; box-sizing: border-box;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap: 1rem;
+    width:90%;
     height:auto;
     overflow:auto;
-    margin:1em 3em;
+    margin:1em 0;
     background-color: rgba(0, 0, 0, 0.5);
-    /* justify-content: center;  
-    align-items: center;  */
 }
-.container::-webkit-scrollbar {
-   /*  -webkit-appearance: none; */
-    background:none;
-    width: 7px;
-}
-.container::-webkit-scrollbar-thumb {
-    background: #300285;
-    border-radius: 5px;
-}
-.proveedor{
-    margin:1em;
-    float:left;
+.proveedor{margin:auto;
     background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../img/img_ini.jpg);
     background-size:cover;
-    /* background-attachment: fixed;  */
     font-family: 'Righteous', cursive;
     position:relative;
     display:flex;
@@ -124,3 +114,24 @@ a:hover{
     margin:0;padding:0;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+@media screen and (max-width:1681px){
+    .container{
+        grid-template-columns: repeat(5,1fr) ;
+    }
+}
+@media screen and (max-width:1390px){
+    .container{
+        grid-template-columns: repeat(4,1fr) ;
+    }
+}  
+@media screen and (max-width:1117px){
+    .container{
+        grid-template-columns: repeat(3,1fr) ;
+    }
+}  
+@media screen and (max-width:840px){
+    .container{
+        grid-template-columns: repeat(2,1fr) ;
+    }
+} 
