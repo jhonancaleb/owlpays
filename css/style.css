@@ -173,16 +173,13 @@
     color:#b6afaf;
     height: 35px;
     width: 20em;
-    outline:none;  
+    outline:none; 
+    padding:0 10px; 
     font-family: 'Righteous', cursive;
     left:1em;
     -webkit-appearance: none;
     border:none;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     background:transparent;
 }
 .icon-is-left{

@@ -61,13 +61,14 @@
 
             //enviar mensagge
             
-            $sql_prod ="SELECT u.nombres,u.telefono, p.nombre FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$cod";  
+            $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$cod";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
                while ( $rows = $result_prod -> fetch_assoc() ) {
                    $number = $rows['telefono'];
                    $name = $rows['nombres'];
                    $name_prove= $rows['nombre'];
+                   $correo_destino= $rows['correo'];
                    }               
                    require_once ('vendor/autoload.php'); // if you use Composer
                    //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
@@ -81,7 +82,10 @@
                    $body=$message; 
                    $api=$client->sendChatMessage($to,$body);
                    print_r($api); 
-            }       
+                    //envio a correo
+                   $asunto="SUSCRIPCIÓN A ".$name_prove.".";
+                   mail($correo_destino,$asunto,$message); 
+             }       
 
             
         }

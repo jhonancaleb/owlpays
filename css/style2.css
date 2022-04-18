@@ -150,22 +150,18 @@
     color:white;
     background-color:#120a55;
 }
-.datos input[type="text"],[type="password"]
+.datos input[type="text"],[type="password"],[type="email"]
 {
     position:relative;
     height: 50px;
     width: 20em;
     outline:none; 
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Righteous', cursive;
+    padding:0 10px;
+    font-family: 'Poppins', cursive;
     left:1em;
     -webkit-appearance: none;
     border:none;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
     background:transparent;
 }
 .icon-is-left{
