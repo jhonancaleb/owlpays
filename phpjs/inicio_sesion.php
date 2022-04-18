@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +57,6 @@
                             {
                                 $_session=$row;
                                 $user=$_POST['tx_usu'];
-                                session_start();
                                 $_SESSION['username']=$user;
                                 if($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']){
                                     header("Location:main.php?id=".$user."");
