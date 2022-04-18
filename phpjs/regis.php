@@ -41,9 +41,9 @@
                         </div>
                     </div>
                     <div class="en">
-                        <div class="en_direcc" id="">
-                            <span class="icon-is-left" ><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                            <input type="text" name="tx_direcc" id="tx_direcc" placeholder="Escriba su dirección" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
+                        <div class="en_correo" id="">
+                            <span class="icon-is-left" ><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <input type="email" name="tx_correo" id="tx_correo" placeholder="Escriba su correo electrónico" required>
                         </div>
                     </div>
                     <div class="en">
@@ -66,11 +66,11 @@
                      else{
                         $names=$_POST['tx_nombres'];
                         $dni=$_POST['tx_dni'];
-                        $direccion=$_POST['tx_direcc'];
+                        $correo=$_POST['tx_correo'];
                         $telefono=$_POST['tx_tele'];
                         $contrase=$_POST['tx_pass'];
                     
-                        $insertar="insert into usuarios values('$dni','$names','$direccion','$telefono','$contrase')";
+                        $insertar="insert into usuarios values('$dni','$names','$correo','$telefono','$contrase')";
                         $result= $db_connect -> query($insertar);
                      }
                     ?>
