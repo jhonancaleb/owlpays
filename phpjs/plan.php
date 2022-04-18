@@ -68,7 +68,7 @@
                    $number = $rows['telefono'];
                    $name = $rows['nombres'];
                    $name_prove= $rows['nombre'];
-                   }
+                   }               
                    require_once ('vendor/autoload.php'); // if you use Composer
                    //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
                    
@@ -80,7 +80,7 @@
                    $message="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
                    $body=$message; 
                    $api=$client->sendChatMessage($to,$body);
-                   print_r($api);
+                   print_r($api); 
             }       
 
             
