@@ -55,12 +55,22 @@
             $tarjeta=$_POST['tx_tarjeta'];
             ini_set('date.timezone','America/Lima');
             $fecha=date('Y-m-d H:i:s');
-            $insertar="INSERT INTO suscripciones(dni_cliente,id_prove,plan,tarjeta,fecha_hora,total) 
-            values('$user','$cod','$plan','$tarjeta','$fecha','$precio')";
+            //FECHA_FINAL
+            /* if($plan="BÁSICO/SEMANAL"){
+                $mod_date = strtotime($fecha."+ 1 week");
+            }
+            elseif($plan="ESTÁNDAR/QUINCENAL"){
+                $mod_date = strtotime($fecha."+ 15 days");
+            }
+            elseif($plan="PREMIUM/MENSUAL"){
+                $mod_date = strtotime($fecha."+ 1 month");
+            }
+            $fecha_fin=date("Y-m-d H:i:s",$mod_date); */
+            $insertar="INSERT INTO suscripciones(dni_cliente,id_prove,plan,tarjeta,fecha_hora,fecha_fin,total) 
+            values('$user','$cod','$plan','$tarjeta','$fecha','$fecha','$precio')";
             $result=$db_connect -> query($insertar);
 
             //enviar mensagge
-            
             $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$cod";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {

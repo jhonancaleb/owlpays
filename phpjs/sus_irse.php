@@ -49,17 +49,17 @@
                            <div class="plan">
                                 <h3>BÁSICO / SEMANAL</h3>
                                 <h1>S/'.$p1.'</h1>
-                                <a id="boton1" href="plan.php?user='.$user.'&id='.$code.'&plan=BÁSICO/ SEMANAL&p='.$p1.'" target="datos_plan"  class="btn_comprar">Comprar</a>
+                                <a id="boton1" href="plan.php?user='.$user.'&id='.$code.'&plan=BÁSICO/SEMANAL&p='.$p1.'" target="datos_plan"  class="btn_comprar">Comprar</a>
                            </div>
                            <div class="plan">
                                 <h3>ESTANDAR/ QUINCENAL</h3>
                                 <h1>S/'.$p2.'</h1>
-                                <a id="boton2" href="plan.php?user='.$user.'&id='.$code.'&plan=ESTANDAR/ QUINCENAL&p='.$p2.'" target="datos_plan" class="btn_comprar">Comprar</a>
+                                <a id="boton2" href="plan.php?user='.$user.'&id='.$code.'&plan=ESTÁNDAR/QUINCENAL&p='.$p2.'" target="datos_plan" class="btn_comprar">Comprar</a>
                            </div>
                            <div class="plan">
                                 <h3>PREMIUM / MENSUAL</h3> 
                                 <h1>S/'.$p3.'</h1>
-                                <a id="boton3" href="plan.php?user='.$user.'&id='.$code.'&plan=PREMIUM / MENSUAL&p='.$p3.'" target="datos_plan" class="btn_comprar">Comprar</a>
+                                <a id="boton3" href="plan.php?user='.$user.'&id='.$code.'&plan=PREMIUM/MENSUAL&p='.$p3.'" target="datos_plan" class="btn_comprar">Comprar</a>
                            </div>
                            ';
                         }
