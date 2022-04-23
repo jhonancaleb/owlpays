@@ -55,12 +55,22 @@
             $tarjeta=$_POST['tx_tarjeta'];
             ini_set('date.timezone','America/Lima');
             $fecha=date('Y-m-d H:i:s');
-            $insertar="INSERT INTO suscripciones(dni_cliente,id_prove,plan,tarjeta,fecha_hora,total) 
-            values('$user','$cod','$plan','$tarjeta','$fecha','$precio')";
+            //FECHA_FINAL
+            /* if($plan="BÁSICO/SEMANAL"){
+                $mod_date = strtotime($fecha."+ 1 week");
+            }
+            elseif($plan="ESTÁNDAR/QUINCENAL"){
+                $mod_date = strtotime($fecha."+ 15 days");
+            }
+            elseif($plan="PREMIUM/MENSUAL"){
+                $mod_date = strtotime($fecha."+ 1 month");
+            }
+            $fecha_fin=date("Y-m-d H:i:s",$mod_date); */
+            $insertar="INSERT INTO suscripciones(dni_cliente,id_prove,plan,tarjeta,fecha_hora,fecha_fin,total) 
+            values('$user','$cod','$plan','$tarjeta','$fecha','$fecha','$precio')";
             $result=$db_connect -> query($insertar);
 
             //enviar mensagge
-            
             $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$cod";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
@@ -69,22 +79,13 @@
                    $name = $rows['nombres'];
                    $name_prove= $rows['nombre'];
                    $correo_destino= $rows['correo'];
-                   }               
-                   require_once ('vendor/autoload.php'); // if you use Composer
-                   //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
-                   
-                   $ultramsg_token="qb5599mtgmahb6tt"; // Ultramsg.com token
-                   $instance_id="instance5222"; // Ultramsg.com instance id
-                   $client = new UltraMsg\WhatsAppApi($ultramsg_token,$instance_id);
-                   
-                   $to="51".$number."";
-                   $message="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
-                   $body=$message; 
-                   $api=$client->sendChatMessage($to,$body);
-                   print_r($api); 
+                   }    
                     //envio a correo
+                   $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
                    $asunto="SUSCRIPCIÓN A ".$name_prove.".";
-                   mail($correo_destino,$asunto,$message); 
+                   mail($correo_destino,$asunto,$body); 
+                   
+                   echo "<meta http-equiv='refresh' content='0,URL=envio_whatsapp.php?name=".$name."&prove=".$name_prove."&plan=".$plan."&precio=".$precio."'>"; 
              }       
 
             
@@ -119,9 +120,9 @@
         con.style.transition="all 0.5s";
         con.style.marginLeft="41em";
         },100);
-        setTimeout(function(){
+        /* setTimeout(function(){
         top.location.reload()//reload aun no funciona bien
-        },2000);
+        },2000); */
         }
         btn.addEventListener("click",function(){
         next();
