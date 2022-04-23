@@ -80,21 +80,10 @@
                    $name_prove= $rows['nombre'];
                    $correo_destino= $rows['correo'];
                    }    
-                   /* require_once ('vendor/autoload.php'); // if you use Composer
-                   //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
-                   
-                   $ultramsg_token="rmlth9toohjtgmrx"; // Ultramsg.com token
-                   $instance_id="instance5585"; // Ultramsg.com instance id
-                   $client = new UltraMsg\WhatsAppApi($ultramsg_token,$instance_id);
-                   
-                   $to="51".$number."";
-                   $message="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
-                   $body=$message; 
-                   $api=$client->sendChatMessage($to,$body);
-                   print_r($api);  */
                     //envio a correo
+                   $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
                    $asunto="SUSCRIPCIÓN A ".$name_prove.".";
-                   mail($correo_destino,$asunto,$message); 
+                   mail($correo_destino,$asunto,$body); 
                    
                    echo "<meta http-equiv='refresh' content='0,URL=envio_whatsapp.php?name=".$name."&prove=".$name_prove."&plan=".$plan."&precio=".$precio."'>"; 
              }       
