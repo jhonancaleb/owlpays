@@ -3,6 +3,7 @@
  $prov=$_GET['prove'];
  $pla=$_GET['plan'];
  $pre=$_GET['precio'];
+ $num=$_GET['numero'];
 
  $mensage="Hola ".$nombres."\nTe acabas de suscribir a ".$prov."\nPlan  : ".$pla.".\nPrecio: S/".$pre.".\nAtentamente OwlPays."; 
 
@@ -16,7 +17,7 @@ $token  = "9a8611d6817f13dd7649ddbbb2cba12e";
 $twilio = new Client($sid, $token); 
  
 $message = $twilio->messages 
-                  ->create("whatsapp:+51993884118", // to 
+                  ->create("whatsapp:+51".$num."", // to 
                            array( 
                                "from" => "whatsapp:+14155238886",       
                                "body" => $mensage 

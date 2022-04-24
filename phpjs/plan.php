@@ -85,7 +85,7 @@
                    $asunto="SUSCRIPCIÓN A ".$name_prove.".";
                    mail($correo_destino,$asunto,$body); 
                    
-                   echo "<meta http-equiv='refresh' content='0,URL=envio_whatsapp.php?name=".$name."&prove=".$name_prove."&plan=".$plan."&precio=".$precio."'>"; 
+                   echo "<meta http-equiv='refresh' content='0,URL=envio_whatsapp.php?name=".$name."&numero=".$number."&prove=".$name_prove."&plan=".$plan."&precio=".$precio."'>"; 
              }       
 
             
