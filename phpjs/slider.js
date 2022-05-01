@@ -18,15 +18,11 @@ function next(){
     },500);
 }
 
-btnright.addEventListener("click",function(){
-    next();
-});
-
 function prev(){
     let sliderSection= document.querySelectorAll(".slider-section");
     let sliderSectionLast=sliderSection[sliderSection.length -1];
-    slider.style.marginLeft="0";
     slider.style.transition="all 0.5s";
+    slider.style.marginLeft="0";
     setTimeout(function(){
         slider.style.transition="none";
         slider.insertAdjacentElement('afterbegin',sliderSectionLast);
