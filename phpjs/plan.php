@@ -49,28 +49,27 @@
         else
         {
             include 'conectar.php';
-            $prove=$_POST['tx_prove'];
-            $plan=$_POST['tx_plan'];                    
-            $precio=$_POST['tx_precio'];
             $tarjeta=$_POST['tx_tarjeta'];
             ini_set('date.timezone','America/Lima');
             $fecha=date('Y-m-d H:i:s');
             //FECHA_FINAL
-            /* if($plan="BÁSICO/SEMANAL"){
-                $mod_date = strtotime($fecha."+ 1 week");
-            }
-            elseif($plan="ESTÁNDAR/QUINCENAL"){
-                $mod_date = strtotime($fecha."+ 15 days");
-            }
-            elseif($plan="PREMIUM/MENSUAL"){
+            if($plan=='PREMIUM/MENSUAL'){
                 $mod_date = strtotime($fecha."+ 1 month");
+                $fecha_fin=date("Y-m-d H:i:s",$mod_date);
             }
-            $fecha_fin=date("Y-m-d H:i:s",$mod_date); */
+            elseif($plan=='BÁSICO/SEMANAL'){
+                $mod_date = strtotime($fecha."+ 1 week");
+                $fecha_fin=date("Y-m-d H:i:s",$mod_date);
+            }
+            elseif($plan=='ESTÁNDAR/QUINCENAL'){
+                $mod_date = strtotime($fecha."+ 15 days");
+                $fecha_fin=date("Y-m-d H:i:s",$mod_date);
+            }
             $insertar="INSERT INTO suscripciones(dni_cliente,id_prove,plan,tarjeta,fecha_hora,fecha_fin,total) 
-            values('$user','$cod','$plan','$tarjeta','$fecha','$fecha','$precio')";
+            values('$user','$cod','$plan','$tarjeta','$fecha','$fecha_fin','$precio')";
             $result=$db_connect -> query($insertar);
 
-            //enviar mensagge
+            /* //enviar mensaje
             $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$cod";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
@@ -83,10 +82,10 @@
                     //envio a correo
                    $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
                    $asunto="SUSCRIPCIÓN A ".$name_prove.".";
-                   mail($correo_destino,$asunto,$body); 
+                   mail($correo_destino,$asunto,$body);  
                    
                    echo "<meta http-equiv='refresh' content='1,URL=envio_whatsapp.php?name=".$name."&numero=".$number."&prove=".$name_prove."&plan=".$plan."&precio=".$precio."'>"; 
-             }       
+             }    */    
 
             
         }
@@ -108,24 +107,21 @@
         }
         function enviar(evento, formulario){
             evento.preventDefault(); //Cancelo el envío
-            setTimeout(function(){ //Aplico el temporizador
-                formulario.submit(); //Envío los datos
-            }, 1000);         
+                setTimeout(function(){ //Aplico el temporizador
+                    formulario.submit(); //Envío los datos
+            },1000);         
         }
 
         let con=document.querySelector("#aviso");
         const btn=document.querySelector("#boton");
         function next(){
-        setTimeout(function(){
-        con.style.transition="all 0.5s";
-        con.style.marginLeft="41em";
-        },100);
-        /* setTimeout(function(){
-        top.location.reload()//reload aun no funciona bien
-        },2000); */
+            setTimeout(function(){
+                con.style.transition="all 0.5s";
+                con.style.marginLeft="41em";
+            },100);
         }
         btn.addEventListener("click",function(){
-        next();
+            next();
         });
     </script>
 
