@@ -90,5 +90,24 @@
             </div>
         </section>
     </section>
+    <?php 
+        include "conectar.php";
+        $sql_prod ='SELECT * from suscripciones where dni_cliente='.$code.' AND id_prove=1';  
+            $result_prod = $db_connect -> query($sql_prod);
+            if ($result_prod -> num_rows > 0) {
+                while ( $rows = $result_prod -> fetch_assoc() ) {
+                    $fecha = $rows['fecha_fin'];                   
+                }
+            }
+    ?>
+    <script>
+        //hora y fecha
+        const hoy= new Date(Date.now());
+        let fecha_php=new Date("<?php echo $fecha; ?>");
+        if (hoy >= fecha_php) {
+          console.log("diego el pana");
+          alert("pan7dsf");
+        }
+    </script>
 </body>
 </html>
