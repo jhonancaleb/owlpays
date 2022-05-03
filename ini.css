@@ -149,3 +149,8 @@
     background-color:white;
     color:black;
 }
+@media (max-width:1401px) {
+    .container-slider{
+        display: none;
+    } 
+}

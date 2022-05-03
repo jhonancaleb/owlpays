@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    error_reporting(0);
+    /* error_reporting(0); */
     $var=$_SESSION['username'];
     if($var==null || $var==''){
         header("Location:inicio_sesion.php");
@@ -89,6 +89,29 @@
                 <iframe class="scro" src="proves.php?id='<?php echo $code ?>'" frameBorder="0" name="formularios"></iframe>
             </div>
         </section>
+        <div class="notificaciones">
+            <h1>Notificaciones</h1>
+            <?php 
+                include "conectar.php";
+                /* ini_set('date.timezone','America/Lima');
+                $hoy=date('Y-m-d H:i:s'); */
+                $sql_prod ='SELECT p.nombre,s.fecha_fin from suscripciones s
+                INNER JOIN proveedores p ON s.id_prove=p.id_proveedor
+                where s.dni_cliente='.$code.'';  
+                    $result_prod = $db_connect -> query($sql_prod);
+                    if ($result_prod -> num_rows > 0) {
+                        while ( $rows = $result_prod -> fetch_assoc() ) {
+                            $nom_prove = $rows['nombre']; 
+                            echo'
+                            <div class="notificacion">
+                                <h2>Ciclo de suscripción finalizado</h2>   
+                                <p>Tu ciclo de suscripción a <span>'.$nom_prove.'</span>   a terminado. Tu nuevo ciclo comienza desde hoy. No olvides pagar tu suscripción.</p>          
+                            </div>  
+                        ';                
+                        }
+                    }
+            ?>
+        </div>
     </section>
     <?php 
         include "conectar.php";
@@ -106,7 +129,6 @@
         let fecha_php=new Date("<?php echo $fecha; ?>");
         if (hoy >= fecha_php) {
           console.log("diego el pana");
-          alert("pan7dsf");
         }
     </script>
 </body>

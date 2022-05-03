@@ -170,7 +170,6 @@ body{
 }
 .ven_exit li{
     display:flex;
-    /* justify-content: center; */
     align-items:center; 
     height: 2em;
     list-style: none;
@@ -215,18 +214,6 @@ body{
     margin:2em;
     min-width: 595px;
 }
-.container iframe::-webkit-scrollbar {
-    /*  -webkit-appearance: none; */
-     background:none;
- }
-.container iframe::-webkit-scrollbar-thumb {
-    background: #300285;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
- }
 .menu{
     position: relative;
     font-family: 'Righteous', cursive;
@@ -274,6 +261,56 @@ body{
     top:20%;
     bottom:-50%;
     text-decoration: none;
+}
+
+.notificaciones{
+    position: fixed;
+    width:20em;
+    height: calc(100vh - 90px);
+    background: #1f2136;
+    z-index:101;
+    bottom:0;
+    right:0;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding:20px 20px;
+    box-sizing: border-box;
+    color:white;
+
+}
+.notificaciones h1{
+    color:white;
+    font-family: 'Righteous', cursive;
+    font-size:25px;
+    margin-bottom: 15px;
+}
+.notificaciones .notificacion{
+    position: relative;
+    background: #171825;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    width: 100%;
+   /*  margin-right: -100em; */
+}
+.notificaciones .notificacion h2{
+    font-size:16px;
+    font-family: 'Poppins', cursive;
+    color:red;
+}
+.notificaciones .notificacion p{
+    font-size:12px;
+    color:rgb(199, 197, 206);
+    font-family: 'Poppins', cursive;
+}
+.notificaciones .notificacion p span{
+    font-size:13px;
+    color:cyan;
+    font-family: 'Poppins', cursive;
+    font-style: italic;
 }
 
 
