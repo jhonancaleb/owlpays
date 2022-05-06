@@ -104,7 +104,7 @@ body{
     position: fixed;
     width: 15em;
     height:auto;
-    z-index:100 !important;
+    z-index:1000;
     right:10%;
     top:5em;
     flex-direction: column;
@@ -266,12 +266,13 @@ body{
 .notificaciones{
     position: fixed;
     width:20em;
+    overflow: hidden;
     height: calc(100vh - 90px);
     background: #1f2136;
     z-index:101;
     bottom:0;
-    right:0;
-    display:flex;
+    right:0;/* 0 */
+    display:none;
     align-items: center;
     flex-direction: column;
     gap: 5px;

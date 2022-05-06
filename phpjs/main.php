@@ -115,7 +115,7 @@
     </section>
     <?php 
         include "conectar.php";
-        $sql_prod ='SELECT * from suscripciones where dni_cliente='.$code.' AND id_prove=1';  
+        $sql_prod ='SELECT * from suscripciones where dni_cliente='.$code.' AND id_prove=2';  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
                 while ( $rows = $result_prod -> fetch_assoc() ) {
