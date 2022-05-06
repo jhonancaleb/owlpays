@@ -1,8 +1,12 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <script type="text/javascript" src="myscript.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg></script>
+    <script src="https://kit.fontawesome.com/a8527aea5d.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,22 +62,40 @@
                             <input type="password" name="tx_pass" id="tx_pass" placeholder="Cree su contraseña" required>
                         </div>
                     </div>
-                    <input type="submit" value="Registrarse">
                     <?php
                      include ("conectar.php");
                      if(!empty($_POST['tx_nombres'])=="")
                      {}
-                     else{
+                     else{                         
+                        $user=$_POST['tx_dni'];
+                        $telefono=$_POST['tx_tele'];
+                        $correo=$_POST['tx_correo'];
+                        $sql_prod ="SELECT * FROM usuarios WHERE dni_cliente=$user OR telefono=$telefono OR correo='$correo'";  
+                        $result_prod = $db_connect -> query($sql_prod);
+                        if ($result_prod -> num_rows > 0) {
+                            echo'
+                            <h4>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Al parecer alguien ya esta registrado con los mismos datos.
+                            </h4>
+                            ';
+                        }
+                        else{
                         $names=$_POST['tx_nombres'];
                         $dni=$_POST['tx_dni'];
                         $correo=$_POST['tx_correo'];
                         $telefono=$_POST['tx_tele'];
                         $contrase=$_POST['tx_pass'];
-                    
+                        //crear cuenta
                         $insertar="insert into usuarios values('$dni','$names','$correo','$telefono','$contrase')";
                         $result= $db_connect -> query($insertar);
+                        //entarra a su cuenta
+                        $_SESSION['username']=$user;
+                        echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
+                        }    
                      }
                     ?>
+                    <input type="submit" value="Registrarse">
                     <div class="a">
                         <a href="inicio_sesion.php">Iniciar sesión</a>
                     </div>
@@ -81,11 +103,6 @@
                 <div class="img"><img src="../img/bot.png" alt=""></div>
             </form>
         </section>
-        <!-- OLAS -->
-       <!--  <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="wave wave4"></div> -->
     </section>
 </body>
 </html>
