@@ -125,6 +125,11 @@
 .datos label{
     position: relative;
 }
+h4{
+    color:red;
+    font-family: "Arial",sans-serif;
+    font-size:12px;
+}
 .datos input[type="submit"]{
     border:none;
     border-radius:15px;
