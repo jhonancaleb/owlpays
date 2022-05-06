@@ -43,36 +43,39 @@
                         <span class="icon-is-left" ><i id="es" class="fa fa-unlock-alt" aria-hidden="true"></i></span>
                         <input type="password" name="tx_pass" id="tx_pass" placeholder="Escriba su contraseña" onfocus="myFunction()" required>
                     </div>
-                    &nbsp;&nbsp;<a href="forget_pass.php" class="forget">Olvidé mi contraseña</a>
-                    <?php
-                        $i=uniqid();
-                        if(isset($_POST['tx_usu'])&& isset($_POST['tx_pass'])) 
+                </div>
+                <div class="avisos">
+                <?php
+                    $i=uniqid();
+                    if(isset($_POST['tx_usu'])&& isset($_POST['tx_pass'])) 
+                    {
+                        include "conexion.php";
+                        $db=new database();
+                        $query=$db->connect()->prepare('SELECT dni_cliente AS username,nombres AS name, password FROM usuarios WHERE dni_cliente=:username AND password=:password');
+                        $query->execute([':username' => $_POST['tx_usu'],
+                                          ':password' => $_POST['tx_pass']]);
+                        $row=$query->fetch(PDO::FETCH_ASSOC);
+                        if($row)
                         {
-                            include "conexion.php";
-                            $db=new database();
-                            $query=$db->connect()->prepare('SELECT dni_cliente AS username,nombres AS name, password FROM usuarios WHERE dni_cliente=:username AND password=:password');
-                            $query->execute([':username' => $_POST['tx_usu'],
-                                              ':password' => $_POST['tx_pass']]);
-                            $row=$query->fetch(PDO::FETCH_ASSOC);
-                            if($row)
-                            {
-                                $_session=$row;
-                                $user=$_POST['tx_usu'];
-                                $_SESSION['username']=$user;
-                                if($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']){
-                                    header("Location:main.php?id=".$user."");
-                                }
-                                else{
-                                    echo "<h4><i class='fa fa-exclamation-triangle icon' aria-hidden='true'></i>
-                                    Usuario no encontrado</h4>";
-                                }
+                            $_session=$row;
+                            $user=$_POST['tx_usu'];
+                            $_SESSION['username']=$user;
+                            if($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']){
+                                header("Location:main.php?id=".$user."");
+                                //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
                             }
                             else{
                                 echo "<h4><i class='fa fa-exclamation-triangle icon' aria-hidden='true'></i>
-                                Datos no encontrados</h4>";
-                            } 
-                        }              
-                    ?>
+                                Usuario no encontrado</h4>";
+                            }
+                        }
+                        else{
+                            echo "<h4><i class='fa fa-exclamation-triangle icon' aria-hidden='true'></i>
+                            Datos no encontrados</h4>";
+                        } 
+                    }              
+                ?>
+                &nbsp;&nbsp;<a href="forget_pass.php" class="forget">Olvidé mi contraseña</a>
                 </div>
                 <input type="submit" value="Ingresar">
                 <div class="a">
