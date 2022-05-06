@@ -69,7 +69,7 @@
             values('$user','$cod','$plan','$tarjeta','$fecha','$fecha_fin','$precio')";
             $result=$db_connect -> query($insertar);
 
-            /* //enviar mensaje
+            //enviar mensaje
             $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$cod";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
@@ -80,12 +80,25 @@
                    $correo_destino= $rows['correo'];
                    }    
                     //envio a correo
-                   $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
+                   $mensaje="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
                    $asunto="SUSCRIPCIÓN A ".$name_prove.".";
-                   mail($correo_destino,$asunto,$body);  
+                   mail($correo_destino,$asunto,$mensaje);  
+                   //envio de mesaje de watsaap
+                   $asunto="SUSCRIPCIÓN A ".$name_prove.".";
+                   mail($correo_destino,$asunto,$mensaje); 
                    
-                   echo "<meta http-equiv='refresh' content='1,URL=envio_whatsapp.php?name=".$name."&numero=".$number."&prove=".$name_prove."&plan=".$plan."&precio=".$precio."'>"; 
-             }    */    
+                   
+                   require_once ('vendor/autoload.php'); // if you use Composer
+                    //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
+	
+                  $token="eh6ky3jctvpecvcn"; // Ultramsg.com token
+                  $instance_id="instance6274"; // Ultramsg.com instance id
+                  $client = new UltraMsg\WhatsAppApi($token,$instance_id);
+	
+                  $to="+51".$number; 
+                  $body=$mensaje; 
+                  $api=$client->sendChatMessage($to,$body);
+             }        
 
             
         }
