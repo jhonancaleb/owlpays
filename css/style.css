@@ -123,14 +123,6 @@
     justify-content: center;  
     align-items: center; 
 }
-.en h4{
-    position:relative;
-    z-index:100;
-    margin:0;
-    color:#ff0000;
-    font-size:11px;
-    font-family: 'Righteous', cursive;
-}
 .datos h1{margin-bottom:30px;
     font-size:30px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
@@ -189,11 +181,7 @@
     position: relative;
     margin:10px;
 }
-.datos .en .forget{
-    color:#129999;
-    font-family: 'arial', cursive;
-    font-size: 14px;
-}
+
 .datos .en_usuario{
     width: 20em;
     height:3em;
@@ -218,7 +206,25 @@
     border-radius:4px;
     background-color:#474745;
 }
-
+.datos .avisos{
+    width:20em;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.datos .avisos h4{
+    position:relative;
+    z-index:100;
+    margin:0;
+    color:#ff0000;
+    font-size:11px;
+    font-family: 'Righteous', cursive;
+}
+.datos .avisos .forget{
+    color:#129999;
+    font-family: 'arial', cursive;
+    font-size: 14px;
+}
 .a a{
     font-family: 'Righteous', cursive;
     font-size: 13px;

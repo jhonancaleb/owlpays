@@ -98,9 +98,6 @@
     width:60%;
     height: 35em;
     max-height: 35em;
-    /* top:50%;
-    left:50%;
-    transform:translate(-50%,-50%); */
     background-color:white;
     border-radius:10px;
 }
@@ -124,11 +121,6 @@
     color:#030586}
 .datos label{
     position: relative;
-}
-h4{
-    color:red;
-    font-family: "Arial",sans-serif;
-    font-size:12px;
 }
 .datos input[type="submit"]{
     border:none;
@@ -177,13 +169,20 @@ h4{
     margin:10px;
     width: 20em;
     height:3em;
-    /* margin:4px; */
     padding-left:10px;
     border-radius:4px;
     background-color:#e0e0dd;
 }
-
-
+.datos .avisos h4{
+    color:red;
+    font-family: "Arial",sans-serif;
+    font-size:12px;   
+}
+.datos .avisos a{
+    color:cyan;
+    font-family: "Arial",sans-serif;
+    font-size:13px;   
+}
 .a a{
     font-family: 'Righteous', cursive;
     font-size: 13px;
