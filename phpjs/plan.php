@@ -84,10 +84,6 @@
                    $asunto="SUSCRIPCIÓN A ".$name_prove.".";
                    mail($correo_destino,$asunto,$mensaje);  
                    //envio de mesaje de watsaap
-                   $asunto="SUSCRIPCIÓN A ".$name_prove.".";
-                   mail($correo_destino,$asunto,$mensaje); 
-                   
-                   
                    require_once ('vendor/autoload.php'); // if you use Composer
                     //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
 	

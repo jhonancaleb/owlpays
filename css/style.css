@@ -189,7 +189,11 @@
     position: relative;
     margin:10px;
 }
-
+.datos .en .forget{
+    color:cyan;
+    font-family: 'arial', cursive;
+    font-size: 14px;
+}
 .datos .en_usuario{
     width: 20em;
     height:3em;

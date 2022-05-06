@@ -43,6 +43,7 @@
                         <span class="icon-is-left" ><i id="es" class="fa fa-unlock-alt" aria-hidden="true"></i></span>
                         <input type="password" name="tx_pass" id="tx_pass" placeholder="Escriba su contraseña" onfocus="myFunction()" required>
                     </div>
+                    &nbsp;&nbsp;<a href="forget_pass.php" class="forget">Olvidé mi contraseña</a>
                     <?php
                         $i=uniqid();
                         if(isset($_POST['tx_usu'])&& isset($_POST['tx_pass'])) 
