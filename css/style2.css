@@ -173,15 +173,10 @@
     border-radius:4px;
     background-color:#e0e0dd;
 }
-.datos .avisos h4{
+.datos h4{
     color:red;
     font-family: "Arial",sans-serif;
     font-size:12px;   
-}
-.datos .avisos a{
-    color:cyan;
-    font-family: "Arial",sans-serif;
-    font-size:13px;   
 }
 .a a{
     font-family: 'Righteous', cursive;
