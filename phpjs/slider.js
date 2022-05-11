@@ -41,3 +41,15 @@ btnleft.addEventListener("click",function(){
 setInterval(function(){
     next();
 },5000)
+
+
+//cookies
+function aceptar(){
+    document.querySelector('#fondo-cookie').style.display="none";
+    //cookies
+    localStorage.setItem('cookies-aceptadas', true);
+}
+
+if(localStorage.getItem('cookies-aceptadas')){
+    document.querySelector('#fondo-cookie').style.display="none";
+} 
