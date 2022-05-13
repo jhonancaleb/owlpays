@@ -65,7 +65,7 @@
                                 //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
                             }
                             elseif($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']  && $row['tipo']=='1'){
-                                header("Location:admin_page.php?id=".$user."");
+                                header("Location:admin_page.php");
                                 //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
                             }
                             else{
