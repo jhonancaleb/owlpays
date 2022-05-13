@@ -51,7 +51,7 @@
                     {
                         include "conexion.php";
                         $db=new database();
-                        $query=$db->connect()->prepare('SELECT dni_cliente AS username,nombres AS name, password FROM usuarios WHERE dni_cliente=:username AND password=:password');
+                        $query=$db->connect()->prepare('SELECT dni_cliente AS username,nombres AS name,tipo, password FROM usuarios WHERE dni_cliente=:username AND password=:password');
                         $query->execute([':username' => $_POST['tx_usu'],
                                           ':password' => $_POST['tx_pass']]);
                         $row=$query->fetch(PDO::FETCH_ASSOC);
@@ -60,8 +60,12 @@
                             $_session=$row;
                             $user=$_POST['tx_usu'];
                             $_SESSION['username']=$user;
-                            if($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']){
+                            if($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']  && $row['tipo']=='2'){
                                 header("Location:main.php?id=".$user."");
+                                //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
+                            }
+                            elseif($row['password']==$_POST['tx_pass'] && $row['username']==$_POST['tx_usu']  && $row['tipo']=='1'){
+                                header("Location:admin_page.php?id=".$user."");
                                 //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
                             }
                             else{
