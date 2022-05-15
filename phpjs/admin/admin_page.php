@@ -36,9 +36,9 @@
                 <label id="ie">Owlpays Admin</label>
             </a>
             <div class="opciones">
-                <a class="opcion" href="" title="Usuarios" target="cuerpo"><span><i class="fa-solid fa-user"></i></span>            <h2 class="letra">Usuarios</h2></a>
-                <a class="opcion" href="" title="Suscripciones" target="cuerpo"><span><i class="fa-solid fa-chalkboard-user"></i></span> <h2 class="letra">Suscripciones</h2></a>
-                <a class="opcion" href="proveedores.php" title="Proveedores" target="cuerpo"><span><i class="fa-solid fa-clipboard"></i></span>       <h2 class="letra">Proveedores</h2></a>
+                <a class="opcion" href="" title="Usuarios" target="cuerpo"><span><i class="fa-solid fa-user-group"></i></span>            <h2 class="letra">Usuarios</h2></a>
+                <a class="opcion" href="" title="Suscripciones" target="cuerpo"><span><i class="fa-solid fa-clipboard"></i></span> <h2 class="letra">Suscripciones</h2></a>
+                <a class="opcion" href="proveedores.php" title="Proveedores" target="cuerpo"><span><i class="fa-brands fa-servicestack"></i></span>       <h2 class="letra">Proveedores</h2></a>
                 <!-- <a class="opcion" href="../grados/grados.php" title="Grados" target="cuerpo"><span><i class="fa-solid fa-graduation-cap"></i></span>  <h2 class="letra"></h2></a>
                 <a class="opcion" href="../asistencia/asistencia.php" title="Asistencia" target="cuerpo"><span><i class="fa-solid fa-calendar-check"></i></span>  <h2 class="letra">Asistencia</h2></a> -->
             </div>

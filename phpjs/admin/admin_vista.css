@@ -14,7 +14,7 @@ img{
     width: 33em;
     height: 33em;
     filter:opacity(35%);
-    /*brightness(0.5)*/-webkit-filter:opacity(25%);
+    -webkit-filter:opacity(25%);
     -webkit-filter:opacity(35%);
     margin-top: -13em;
 }

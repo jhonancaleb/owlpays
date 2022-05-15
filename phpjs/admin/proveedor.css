@@ -147,13 +147,13 @@
     /* overflow: auto; */
 }
 .content-proves .buscador{
+    position: relative;
     width: 98%;
     background: #8a1f3a;
-    display:flex;
+    padding: 10px 20px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    margin:0px auto;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -162,6 +162,7 @@
 }
 .content-proves .buscador ul {
     display:flex;
+    width: auto;
     gap:10px;
     list-style: none;
     color:white;

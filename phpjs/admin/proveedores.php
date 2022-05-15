@@ -24,7 +24,7 @@
                 <input type="text" name="tx_plan2" id="" class="input" placeholder="Plan2" required>
                 <input type="text" name="tx_plan3" id="" class="input" placeholder="Plan3" required>
                 <div class="file-img">
-                    <input type="file" name="img" id="file">
+                    <input type="file" name="img" id="file" required>
                     <label for="file"><i class="fa-solid fa-upload"></i> Subir imagen</label>
                 </div>
                 <?php
@@ -136,7 +136,7 @@
                                 <tr>
                                     <td colspan=7>
                                         <div class="nohay">
-                                            <img src="https://cdn-icons.flaticon.com/png/128/5445/premium/5445197.png?token=exp=1652474705~hmac=daf06c97731f4c8b8196ec40b8e823d6" alt="vacio">
+                                            <img src="https://cdn-icons.flaticon.com/png/512/5445/premium/5445197.png?token=exp=1652628568~hmac=398ae2dbccfc5802d8f4e477d25f32f7" alt="vacio">
                                             <p>No hay proveedores que coincidan con "'.$prove.'"</p>
                                         </div>
                                     </td>
