@@ -50,7 +50,7 @@
                 <a class="salir" href="../cerrar_sesion.php" title="Cerrar Sesión"><span><i class="fa-solid fa-right-from-bracket"></i></span></a>
             </div>
         </div>
-        <iframe name="cuerpo" src="" frameborder="0"></iframe>
+        <iframe name="cuerpo" src="admin_vista.php" frameborder="0"></iframe>
     </div>
    <script>
        /* window,alert("hola") */

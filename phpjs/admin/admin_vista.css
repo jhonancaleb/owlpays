@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+body{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap:5em;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+}
+img{
+    width: 33em;
+    height: 33em;
+    filter:opacity(35%);
+    /*brightness(0.5)*/-webkit-filter:opacity(25%);
+    -webkit-filter:opacity(35%);
+    margin-top: -13em;
+}
+label{
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+label::before{
+    content: "Página de Administrador";
+    position: absolute;
+    font-family: 'Lobster Two', cursive;
+    font-size: 3em;
+    text-align: center;
+    letter-spacing:4px;
+    width: 100%;
+    bottom: -3px;
+    color:#172027;
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    font-weight: 700;
+    filter: opacity(80%);
+    -webkit-filter: opacity(80%);
+}
+label::after{
+    content: "Página de Administrador";
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    font-family: 'Lobster Two', cursive;
+    font-size: 3em;
+    text-align: center;
+    color:#515155;
+    letter-spacing:4px;
+    width: 100%;
+    z-index: -1;
+    transform: rotate(-5deg);
+    font-weight: 700;
+    filter: opacity(80%);
+    -webkit-filter: opacity(80%)8
+}
