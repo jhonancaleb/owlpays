@@ -147,7 +147,7 @@
     -o-border-radius: 2px;
 }
 .content-formu .formu .submit:hover{
-    background: transparent;
+    background: #1414a1;
     outline:1px solid #1a1ac4;
 }
 .content-formu .img{

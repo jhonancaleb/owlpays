@@ -16,6 +16,7 @@
                 <h1>Agrega proveedores</h1>
                 <input type="text" name="tx_nombre" id="" class="input" placeholder="Nombre del proveedor" required>
                 <select name="tx_categoria" id="" class="input" placeholder="Categoria" required>
+                    <option value="" selected disabled>Seleccione una categoría</option>    
                     <option value="STREAMING">STREAMING</option>
                     <option value="EDUCACION">EDUCACION</option>
                     <option value="DISEÑO">DISEÑO</option>
@@ -137,7 +138,7 @@
                                 <tr>
                                     <td colspan=7>
                                         <div class="nohay">
-                                            <img src="https://cdn-icons.flaticon.com/png/512/5445/premium/5445197.png?token=exp=1652628568~hmac=398ae2dbccfc5802d8f4e477d25f32f7" alt="vacio">
+                                            <img src="../../img/vacio.png" alt="vacio">
                                             <p>No hay proveedores que coincidan con "'.$prove.'"</p>
                                         </div>
                                     </td>
