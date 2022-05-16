@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="repor_proves.php" class="gen_reporte">Generar reporte</a>
+        <a href="repor_proves.php" class="gen_reporte"><i class="fa-solid fa-file-lines"></i>Generar reporte</a>
         <div class="content-formu">
             <form class="formu" action="proveedores.php" method="post" enctype="multipart/form-data">
                 <h1>Agrega proveedores</h1>
