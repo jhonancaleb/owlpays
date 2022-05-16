@@ -102,7 +102,7 @@
                                      <td><img src="data:image/jpg;base64,'.base64_encode($imagen).'" alt="'.$name.'"></td>
                                  </tr>
                                 ';
-                           }
+                            }
                         } 
                     }
                     else
