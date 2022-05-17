@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="repor_proves.php" class="gen_reporte"><i class="fa-solid fa-file-lines"></i>Generar reporte</a>
+        <a href="repor_proves.php" class="gen_reporte" title="Reporte excel"><i class="fa-solid fa-file-excel"></i>Generar reporte</a>
         <div class="content-formu">
             <form class="formu" action="proveedores.php" method="post" enctype="multipart/form-data">
                 <h1>Agrega proveedores</h1>
@@ -73,9 +73,9 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Categoría</th>
-                <th>Plan1</th>
-                <th>Plan2</th>
-                <th>Plan3</th>
+                <th>Plan Básico</th>
+                <th>Plan Estándar</th>
+                <th>Plan Premium</th>
                 <th>Logo</th>
                 <?php
                     include 'conectar.php';

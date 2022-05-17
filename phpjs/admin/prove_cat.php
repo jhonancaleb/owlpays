@@ -52,10 +52,10 @@
         <th>Id</th>
         <th>Nombre</th>
         <th>Categoría</th>
-        <th>Plan1</th>
-        <th>Plan2</th>
-        <th>Plan3</th>
-        <th>Imagen</th>
+        <th>Plan Básico</th>
+        <th>Plan Estándar</th>
+        <th>Plan Premium</th>
+        <th>Logo</th>
         <?php
             include 'conectar.php';
             $cat=$_GET['cat'];
