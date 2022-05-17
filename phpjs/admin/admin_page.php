@@ -2,7 +2,7 @@
     session_start();
     $user=$_SESSION['username'];
     if($user==null || $user==''){
-        header("Location:../index.php");
+        header("Location:../inicio_sesion.php");
         die();
     }
     include "conexion.php";
