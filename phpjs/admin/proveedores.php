@@ -14,7 +14,7 @@
         <div class="content-formu">
             <form class="formu" action="proveedores.php" method="post" enctype="multipart/form-data">
                 <h1>Agrega proveedores</h1>
-                <input type="text" name="tx_nombre" id="" class="input" placeholder="Nombre del proveedor" required>
+                <input type="text" name="tx_nombre" id="" class="input" placeholder="Nombre del proveedor" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                 <select name="tx_categoria" id="" class="input" placeholder="Categoria" required>
                     <option value="" selected disabled>Seleccione una categoría</option>    
                     <option value="STREAMING">STREAMING</option>

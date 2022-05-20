@@ -54,6 +54,7 @@
                     }
                  $sql_prod ="SELECT * FROM suscripciones WHERE dni_cliente=$code ";  
                  $result_prod = $db_connect -> query($sql_prod);
+                 $total = 0;
                  while ( $rows = $result_prod -> fetch_assoc() ) {
                     $total=$total+$rows['total'];
                  }   
