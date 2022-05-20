@@ -38,9 +38,6 @@ body{
     font-size: 3em; 
     float:right;
 }
-.container-perfil{
-    
-}
 main{
     background: #e6e3e3;
     height: calc(100vh - 90px);
