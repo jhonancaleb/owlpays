@@ -222,9 +222,7 @@
                   $to="+51".$number; 
                   $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
                   $api=$client->sendChatMessage($to,$body);
-             }        
-
-            
+             }             
         }
         ?>
     </form>
@@ -244,9 +242,13 @@
         }
         function enviar(evento, formulario){
             evento.preventDefault(); //Cancelo el envío
-                setTimeout(function(){ //Aplico el temporizador
-                    formulario.submit(); //Envío los datos
-            },1000);         
+            setTimeout(function(){ //Aplico el temporizador
+                formulario.submit(); //Envío los datos
+            },1000); 
+            setTimeout(function(){ 
+                top.location.reload(); //recargo la pagina en 2 seg
+            },2000); 
+
         }
 
         let con=document.querySelector("#aviso");

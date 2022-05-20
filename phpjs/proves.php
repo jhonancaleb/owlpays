@@ -19,7 +19,7 @@
              </select>
         </div> <p>ó</p>
         <div class="buscar">
-            <input type="text" name="tx_bus" id="" placeholder="Escriba el proveedor que busca">
+            <input type="text" name="tx_bus" id="" placeholder="Escriba el proveedor que busca" required="required">
         </div>
         <input type="submit" value="Buscar">
     </form>

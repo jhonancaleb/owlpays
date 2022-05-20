@@ -63,7 +63,6 @@
                 <div class="icon" id="btn-abrir">
                     <img src="../img/usuario.png" alt="user" onclick="mostrar()">
                 </div>
-                
             </div>
         </header>
         <section class="cuerpo">
@@ -74,6 +73,7 @@
                     <h2>User : <?php echo $idd;?></h2>
                 </div>
                 <ul id="ul">
+                    <li><a href="perfil.php"><i class="fa fa-user" aria-hidden="true"></i>  Mi perfil</a></li>
                     <li><a href=""><i class="fa fa-bell" aria-hidden="true"></i>  Notificaciones</a></li>
                     <li class="dos"><a href="cerrar_sesion.php"><i class="fa fa-outdent" aria-hidden="true"></i>  Cerrar sesión</a></li>
                </ul>
