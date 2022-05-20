@@ -36,7 +36,7 @@
             background: #232e37;
         }
         table td {
-            padding: 5px 10px;
+            padding: 15px 5px !important;
         }
         table td.nombres {
            text-align: left;

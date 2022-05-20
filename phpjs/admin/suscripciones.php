@@ -14,6 +14,9 @@
         .content-proves table {
             font-size:15px;
         }
+        .content-proves table td  {
+            padding: 15px 5px !important;
+        }
     </style>
 </head>
 <body>

@@ -79,6 +79,12 @@
                                 $TELEFONO = $rows['telefono'];
                                 $PASSWORD = $rows['password'];
                                 $TIPO = $rows['tipo'];
+                                if($TIPO==1){
+                                    $TIPO_letra='ADMINISTRADOR';
+                                }
+                                elseif($TIPO==2){
+                                    $TIPO_letra='USUARIO';
+                                }
                                 echo'
                                  <tr>
                                      <td>'.$DNI.'</td>
@@ -86,7 +92,7 @@
                                      <td>'.$CORREO.'</td>
                                      <td>'.$TELEFONO.'</td>
                                      <td>'.$PASSWORD.'</td>
-                                     <td>'.$TIPO.'</td>
+                                     <td>'.$TIPO_letra.'</td>
                                      <td><a href="recibo.php?u='.$DNI.'" target="_blank"><img src="../../img/recibo.png" alt="recibo" title="Generar recibo"></a></td>
                                  </tr>
                                 ';

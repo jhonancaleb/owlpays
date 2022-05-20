@@ -252,7 +252,7 @@
 }
 .content-proves table th {
     background: #8a1f3a;
-    padding: 5px;
+    padding: 5px 0;
     height: 3em;
 }
 .content-proves table tr{
@@ -263,7 +263,7 @@
     background: #232e37;
 }
 .content-proves table td {
-    padding: 5px 10px;
+    padding: 5px 5px;
 }
 .content-proves table td.nombres {
    text-align: left;
