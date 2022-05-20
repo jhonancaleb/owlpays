@@ -91,8 +91,8 @@
                         $result= $db_connect -> query($insertar);
                         
                         //enviar mail de bienvenida
-                        $asunto="SUSCRIPCIÓN A ".$name_prove.".";
-                        $destinatario=$correo_destino;
+                        $asunto="BIENVENIDO A OWLPAYS";
+                        $destinatario=$correo;
                         $cuerpo='
                         <!DOCTYPE html>
                         <html lang="en">
@@ -188,21 +188,12 @@
                                 </div>
                                 <hr>
                                 <div class="cuerpo">
-                                    <h1>Bienvenido</h1>
-                                    <p class="mensaje">Hola '.$names.'.Te damos la bienvenida a OwlPays.</p>
+                                    <h1>BIENVENIDO</h1>
+                                    <p class="mensaje">Hola '.$names.'. Acabas de inscribirte a OwlPays, la pagina de que contiene los servicios mas populares del mercado. </p>
                                     <div class="suscripcion">
-                                    <img src="data:image/jpg;base64,'.base64_encode($imagen).'" alt="" class="img-service">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4245/4245516.png" alt="" class="img-service">
                                         <div class="datos">
-                                            <table>
-                                                <tr>
-                                                    <td class="th">Plan</td>
-                                                    <td>'.$plan.'</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="th">Precio</td>
-                                                    <td>S/'.$precio.'</td>
-                                                </tr>
-                                            </table>
+                                            <p>Te damos la bienvenida. Esperamos que estes bien y que tu estadía sea larga. </p>
                                         </div>
                                     </div>
                                 </div> 
@@ -211,7 +202,6 @@
                                     <p>
                                         Ha recibido esta notificación obligatoria del servicio de correo electrónico para mantenerle actualizado acerca de los cambios importantes en el producto o en la cuenta de OwlPays.</p>
                                 </div>
-
                             </div>      
                         </body>
                         </html>
@@ -220,6 +210,18 @@
                         $cabecera="MIME-Version: 1.0\r\n";
                         $cabecera.="Content-type: text/html; charset=iso-8859-1\r\n";
                         mail($destinatario,$asunto,$cuerpo,$cabecera);
+                        //envio al WhatsAppApi
+                        //envio de mesaje de watsaap
+                        require_once ('vendor/autoload.php'); // if you use Composer
+                        //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
+
+                        $token="eh6ky3jctvpecvcn"; // Ultramsg.com token
+                        $instance_id="instance6274"; // Ultramsg.com instance id
+                        $client = new UltraMsg\WhatsAppApi($token,$instance_id);
+
+                        $to="+51".$telefono; 
+                        $body="BIENVENIDO A OWLPAYS\n Hola".$names."\nTe acabas de inscribir a OwlPays, la página con los servicios mas populares del mercado.Esperamos que tu estadía sea larga.\nAtentamente OwlPays."; 
+                        $api=$client->sendChatMessage($to,$body);
 
                         //entrar a su cuenta
                         $_SESSION['username']=$user;
