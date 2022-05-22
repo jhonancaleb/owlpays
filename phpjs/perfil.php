@@ -44,27 +44,29 @@
             <h1>Mi perfil</h1>
             <hr>
             <form class="datos" action="perfil.php" method="post">
-                <div class="div-campo">
-                    <label for="">DNI</label>
-                    <input type="text" readonly="readonly" name="dni_cliente" value="<?php echo $dni;?>" class="campo"  maxlength="8"  minlength="8" onkeypress="valide(event)" required>
-                </div> 
-                <div class="div-campo">
-                    <label for="">Nombres</label>
-                    <input type="text" name="nombres"  class="campo" value="<?php echo $nom;?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required >
+                <div class="campos">
+                    <div class="div-campo">
+                        <label for="">DNI</label>
+                        <input type="text" readonly="readonly" name="dni_cliente" value="<?php echo $dni;?>" class="campo"  maxlength="8"  minlength="8" onkeypress="valide(event)" required>
+                    </div> 
+                    <div class="div-campo">
+                        <label for="">Nombres</label>
+                        <input type="text" name="nombres"  class="campo" value="<?php echo $nom;?>" onkeyup="javascript:this.value=this.value.toUpperCase();" required >
+                    </div>    
+                    <div class="div-campo">
+                        <label for="">Teléfono</label>
+                        <input type="text" name="telefono" class="campo" value="<?php echo $tel;?>" maxlength="9"  minlength="9" onkeypress="valide(event)" required>
+                    </div>
+                    <div class="div-campo">
+                        <label for="">Correo</label>
+                        <input type="mail" name="direccion" class="campo" value="<?php echo $dir;?>" required>
+                    </div> 
+                    <div class="div-campo">
+                        <label for="">Contraseña</label>
+                        <input type="password" id="password" name="contraseña" class="campo" value="<?php echo $pass;?>" id="password" required readonly><a onclick="habilitar()">Cambiar contraseña</a>
+                    </div>  
                 </div>
-                <div class="div-campo">
-                    <label for="">Teléfono</label>
-                    <input type="text" name="telefono" class="campo" value="<?php echo $tel;?>" maxlength="9"  minlength="9" onkeypress="valide(event)" required>
-                </div>
-                <div class="div-campo">
-                    <label for="">Correo</label>
-                    <input type="mail" name="direccion" class="campo" value="<?php echo $dir;?>" required>
-                </div>
-                <div class="div-campo">
-                    <label for="">Contraseña</label>
-                    <input type="password" id="password" name="contraseña" class="campo" value="<?php echo $pass;?>" id="password" required readonly><a onclick="habilitar()">Cambiar contraseña</a>
-                </div>
-                <div class="div-campo">
+                <div class="div-password">
                     <input type="submit" class="submit" value="Guardar cambios">
                 </div>
                 <?php

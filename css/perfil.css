@@ -48,21 +48,28 @@ main h1{ font-size:3em; color:rgb(82, 79, 79);}
 main .datos{ 
     width: 100%;
     height: 15em;
+    display:flex;
+    flex-direction: column;
 }
-main .datos .div-campo{ 
+main .datos .campos .div-campo{ 
     width: auto;
     height: auto;
     padding: 5px;
     float:left;
 }
-.datos .div-campo label{
+main .datos .campos .div-password{ 
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+.datos .campos .div-campo label{
     display:block;
     color:rgb(89, 89, 122);
     font-family: "Arial";
     font-weight: 600;
     margin: 5px 1px;
 }
-.datos .div-campo .campo{
+.datos .campos .div-campo .campo{
     color:rgb(89, 89, 122);
     width:20em;
     padding: 10px;
@@ -79,18 +86,18 @@ main .datos .div-campo{
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
 }
-.datos .div-campo .campo:focus{
+.datos .campos .div-campo .campo:focus{
     outline:none;
     box-shadow: 0px 2px 0px #0099ff;
 }
-.datos .div-campo a{
+.datos .campos .div-campo a{
     font-size: 15px;
     font-family: "Arial";
     margin-left: 5px;
     text-decoration:underline;
     cursor:pointer;
 }
-.datos .div-campo .submit{
+.datos .div-password .submit{
     display:block;
     background: #0099ff;
     color:rgb(89, 89, 122);

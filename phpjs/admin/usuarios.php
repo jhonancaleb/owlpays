@@ -56,7 +56,6 @@
                     <input type="submit" value="Buscar" class="submit">
                 </form>
             </div>
-
             <table id="tabla">
                 <th>DNI</th>
                 <th>NOMBRE</th>
