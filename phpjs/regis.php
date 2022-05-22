@@ -189,7 +189,7 @@
                                 <hr>
                                 <div class="cuerpo">
                                     <h1>BIENVENIDO</h1>
-                                    <p class="mensaje">Hola '.$names.'. Acabas de inscribirte a OwlPays, la pagina de que contiene los servicios mas populares del mercado. </p>
+                                    <p class="mensaje">Hola '.$names.'. Acabas de inscribirte a OwlPays, la pagina que contiene los servicios mas populares del mercado. </p>
                                     <div class="suscripcion">
                                     <img src="https://cdn-icons-png.flaticon.com/512/4245/4245516.png" alt="" class="img-service">
                                         <div class="datos">
