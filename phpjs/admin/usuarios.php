@@ -123,7 +123,7 @@
                                      <td><a href="recibo.php?u='.$DNI.'"" target="_blank"><img src="../../img/recibo.png" alt="recibo" title="Generar recibo"></a></td>
                                  </tr>
                                 ';
-                           }
+                            }
                         } 
                         else{
                             echo'
