@@ -19,7 +19,7 @@
 </head>
 <body>
     <header class="head">
-        <a href="index.html" class="logo" id="logo">
+        <a href="login.php" class="logo" id="logo">
             <img src="img/icons8-búho-64.png" alt="buho">
             <label for="logo">OwlPays</label>
         </a>
