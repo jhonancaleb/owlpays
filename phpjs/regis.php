@@ -87,7 +87,7 @@
                         $telefono=$_POST['tx_tele'];
                         $contrase=$_POST['tx_pass'];
                         //crear cuenta
-                        $insertar="insert into usuarios values('$dni','$names','$correo','$telefono','$contrase')";
+                        $insertar="insert into usuarios values('$dni','$names','$correo','$telefono','$contrase','2'";
                         $result= $db_connect -> query($insertar);
                         
                         //enviar mail de bienvenida
