@@ -1,11 +1,8 @@
 <?php 
     session_start();
-    /* error_reporting(0); */
-    $var=$_SESSION['username'];
-    if($var==null || $var==''){
-        header("Location:inicio_sesion.php");
-        die();
-    } 
+    if(!isset($_SESSION['username'])){
+        header('Location:../login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,10 +39,10 @@
 <body id="body">
     <?php
     include "conexion.php";
-    $code=$_GET['id'];
+    $code=$_SESSION['username'];
     $db=new database();
     $query=$db->connect()->prepare('SELECT dni_cliente AS username,nombres AS name FROM usuarios WHERE dni_cliente=:username');
-    $query->execute([':username' => $_GET['id']]);
+    $query->execute([':username' => $code]);
     $row=$query->fetch(PDO::FETCH_ASSOC);
     $idd=$row['username'];
     $nombres=$row['name'];

@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+    text-decoration: none;
+}
+:root{
+    --bg-grey: #e5e4e7;
+    --color-letter-1: #696767;
+    --bg-blue: #001c40;
+    --bg-cyan: #3080e9;
+    --bg-yellow-hover:#fab005;
+    --bg-yellow:#ffbe26;
+}
+.head
+{
+    position:relative;
+    width:100%;
+    height: 85px;
+    background: rgba(179, 170, 170, 0.5) ;
+    display:flex;
+    align-items: center;
+    padding:0 10%;
+    box-shadow: 0 15px 10px rgba(168, 162, 162, 0.5);
+    z-index: 101;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.head .logo img{
+    position:relative;
+    width:55px;
+    height:55px;
+}
+.head .logo label
+{
+    position:relative;
+    color: #696767;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 3em; 
+    font-weight: 500; 
+    cursor:pointer;
+}
+a{
+    cursor: pointer;
+}
+section{
+    position: relative;
+    height: calc(100vh - 85px);
+    background-image: url(../img/fondo-login.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;   
+}
+section:before{
+    content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+section .container{
+    position: relative;
+    z-index:100;
+    width: 60%;
+    height: 80%;
+    background:#fff;
+    box-shadow: 15px 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius:5px;
+}
+section .container .user{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+section .container .user .imgBx{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: #ff0;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+section .container .user .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+section .container .user .formBx{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transition: 0.5s;
+}
+section .container .user .formBx form {
+    position: relative;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+section .container .user .formBx form .campo{
+    position: relative;
+    padding: 1px 10px;
+    background: #f5f5f5;
+    color:rgb(110, 110, 116);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+}
+section .container .user .formBx form .campo::after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;  
+    background:#677eff;
+    transition: 0.5s;
+}
+section .container .user .formBx form .campo:hover::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;  
+    background:#677eff;
+}
+section .container .user .formBx form h2{
+    font-size:18px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    text-align-last: center;
+    width: 100%;
+    margin-bottom:10px ;
+    color: #555;
+}
+h4{
+    font-size:12px;
+    font-family: "Arial", Helvetica, sans-serif;
+    color:red;
+    margin-left: 2px;
+}
+h4.warning{
+    color:var(--bg-yellow);   
+}
+h4.ok{
+    color:#4f4fdf;
+}
+.botones{
+    display:flex;
+    justify-content: space-between;
+}
+.botones .forget{
+    font-size:15px;
+    color:var(--bg-blue);
+    font-family: "Arial", Helvetica, sans-serif;
+    text-decoration:underline;
+    font-weight:400;
+}
+section .container .user .formBx form input{
+    position: relative;
+    width: 95%;
+    padding: 10px;
+    background: transparent;
+    border:none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    
+}
+section .container .user .formBx form input:focus{
+    outline:none;
+}
+section .container .user .formBx form input[type="submit"]{
+   max-width: 120px;
+   background: #677eff;
+   color:#fff;
+   cursor: pointer;
+   font-size: 14px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   transition: 0.5s;
+   border-radius: 2px;
+   -webkit-border-radius: 2px;
+   -moz-border-radius: 2px;
+   -ms-border-radius: 2px;
+   -o-border-radius: 2px;
+}
+section .container .user .formBx form p{
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color:#555;
+    font-weight:300,
+}
+section .container .user .formBx form p a{
+    color:#677eff;
+    font-weight: 600;
+    text-transform:uppercase;
+}
+/* seccion password */
+section .container .passBx{
+    position: absolute;
+    top: -100%;
+    transition: all 0.3s;
+}
+section .container .passBx .formBx{
+    left: 100%;
+}
+section .container .passBx .imgBx{
+    left: -100%;
+}
+section .container .passBx.active{
+    position: absolute;
+    top: 0;
+}
+section .container .passBx.active .formBx{
+    left: 0;
+}
+section .container .passBx.active .imgBx{
+    left: 0;
+}
+section .container .singupBx{
+    pointer-events: none;
+}
+section .container .singupBx .formBx{
+    left: 100%;
+}
+section .container .singupBx .imgBx{
+    left: -100%;
+}
+section .container.active .singupBx{
+    pointer-events:initial;
+}
+section .container.active .singupBx .formBx{
+    left:0;
+}
+section .container.active .singupBx .imgBx{
+    left: 0;
+}
+
+section .container .singinBx .formBx{
+    left: 0;
+}
+section .container .singinBx .imgBx{
+    left: 0;
+}
+section .container.active .singinBx .formBx{
+    left:100%;
+}
+section .container.active .singinBx .imgBx{
+    left: -100%;
+}
+@media (max-width:1150px){
+    section .container{
+        min-width:400px;
+    }
+    section .container .imgBx{
+        display: none;
+    }
+    section .container .user .formBx{
+        width: 100%;
+    }
+    section .container .user .formBx{
+        width: 100%;
+    }
+}

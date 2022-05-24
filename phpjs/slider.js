@@ -1,4 +1,4 @@
-const slider=document.querySelector("#slider");
+/* const slider=document.querySelector("#slider");
 let sliderSection=document.querySelectorAll(".slider-section");
 let sliderSectionLast=sliderSection[sliderSection.length -1];
 
@@ -40,7 +40,7 @@ btnleft.addEventListener("click",function(){
 
 setInterval(function(){
     next();
-},5000)
+},5000) */
 
 
 //cookies
