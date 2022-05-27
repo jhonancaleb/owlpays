@@ -74,7 +74,7 @@ document.getElementById('correo').addEventListener('input', function() {
     if (emailRegex.test(campo.value)) {
         $("#aviso").html('<h4 class="ok"><i class="fa-solid fa-check"></i> Correo válido.</h4>')
     } else {
-        $("#aviso").html('<h4 class="warning"><i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i>Ingrese un correo válido.</h4>')
+        $("#aviso").html('<h4 class="warning"><i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i> Ingrese un correo válido.</h4>')
     }
 });
 
