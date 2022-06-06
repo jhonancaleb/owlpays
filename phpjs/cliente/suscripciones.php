@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="head">
-        <a href="login.php" class="logo" id="logo">
+        <a href="area_client.php" class="logo" id="logo">
             <img src="../../img/buho2.png" alt="buho">
             <label for="logo">OwlPays</label>
         </a>
@@ -19,9 +19,9 @@
             <i class="fa-regular fa-circle-user"></i>           
         </div>  
         <ol class="menu">
-            <a href="area_client.html"><li><i class="fa-light fa-house"></i>Inicio</li></a>
-            <a href="perfil.html"><li><i class="fa-regular fa-circle-user"></i>Mi perfil</li></a>
-            <a href="suscripciones.html"><li><i class="fa-regular fa-list-check"></i>Mis suscripciones</li></a>
+            <a href="area_client.php"><li><i class="fa-light fa-house"></i>Inicio</li></a>
+            <a href="perfil.php"><li><i class="fa-regular fa-circle-user"></i>Mi perfil</li></a>
+            <a href="suscripciones.php"><li><i class="fa-regular fa-list-check"></i>Mis suscripciones</li></a>
             <a href=""><li><i class="fa-regular fa-bell"></i>Notificaciones</li></a>
             <a href="../cerrar_sesion.php"><li><i class="fa-regular fa-right-from-bracket"></i>Salir</li></a>
         </ol>        

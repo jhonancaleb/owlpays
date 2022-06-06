@@ -20,7 +20,7 @@
 <body>
     <header class="head">
         <a href="login.php" class="logo" id="logo">
-            <img src="img/icons8-búho-64.png" alt="buho">
+            <img src="img/buho2.png" alt="buho">
             <label for="logo">OwlPays</label>
         </a>
     </header>
@@ -54,7 +54,7 @@
                                     $password=$_POST['tx_password'];
                                     $_SESSION['username']=$user;
                                     if($row['password']==$password && $row['username']==$user  && $row['tipo']=='2'){
-                                        header("Location:phpjs/cliente/area_client.html");
+                                        header("Location:phpjs/cliente/area_client.php");
                                         //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
                                     }
                                     elseif($row['password']==$password && $row['username']==$user  && $row['tipo']=='1'){
