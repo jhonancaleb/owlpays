@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="img/buho.png" type="image/ong">
+    <link rel="icon" href="img/buho2.png" type="image/ong">
     <link rel="stylesheet" href="css/login.css">
     <script src="https://kit.fontawesome.com/a8527aea5d.js" crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -54,7 +54,7 @@
                                     $password=$_POST['tx_password'];
                                     $_SESSION['username']=$user;
                                     if($row['password']==$password && $row['username']==$user  && $row['tipo']=='2'){
-                                        header("Location:phpjs/main.php");
+                                        header("Location:phpjs/cliente/area_client.html");
                                         //echo "<meta http-equiv='refresh' content='1;URL=main.php?id=".$user."'>";
                                     }
                                     elseif($row['password']==$password && $row['username']==$user  && $row['tipo']=='1'){

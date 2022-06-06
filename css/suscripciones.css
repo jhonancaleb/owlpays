@@ -165,3 +165,98 @@ ol.menu li:hover{
 ol.menu li i{
     width: 20px;
 }
+.cuerpo{
+    position: relative;
+    padding: 50px 10%;
+}
+.cuerpo h3{
+    font-family: var(--font-odibee);
+    font-size: 30px;
+    color: var(--color-lila);
+    letter-spacing:2px;
+}
+.container-sus{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 40px 20px 20px;
+}
+.suscripcion{
+    width: 100%;
+}
+.suscripcion table{
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-blue);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.suscripcion table caption { 
+    display: table-caption;
+    text-align: left;
+    font-family: var(--font-odibee);
+    font-size:19px;
+    letter-spacing:2px;
+}
+.suscripcion table:hover{
+    transform:scale(1.03);
+    -webkit-transform:scale(1.03);
+    -moz-transform:scale(1.03);
+    -ms-transform:scale(1.03);
+    -o-transform:scale(1.03);
+}
+.suscripcion table thead{
+    background: var(--bg-yellow-hover);
+    color:white;
+    height: 3em;
+}
+.suscripcion table tbody{
+    height: 3em;
+    color:var(--color-light-blue);
+    font-weight: 500;
+}
+.suscripcion table tbody:hover{
+    background: var(--color-light-grey);
+}
+.suscripcion table tbody .servicio{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+    padding: 5px;
+}
+.suscripcion table tbody .servicio img{
+    width: 50px;
+    height: 50px;
+}
+.suscripcion table tbody .servicio span{
+    color:var(--bg-cyan);
+    font-weight: bold;
+}
+.total{
+    position: absolute;
+    top: 95px;
+    right: 10%;
+    background: var(--color-blue);
+    color:white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.total:hover{
+    background: var(--color-light-blue);
+}
+.total span{
+    color:var(--color-lila)
+}
+
+
+
