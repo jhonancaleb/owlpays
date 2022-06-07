@@ -1,3 +1,16 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header('Location:../../login.php');
+    }
+    $user=$_SESSION['username'];
+    include '../conectar.php';
+    //contar proveedores
+    $sql = "SELECT sum(total) total FROM suscripciones where dni_cliente=$user";
+    $result = mysqli_query($db_connect, $sql);
+    $fila = mysqli_fetch_assoc($result);
+    $total_pagar=$fila['total'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,171 +32,68 @@
             <i class="fa-regular fa-circle-user"></i>           
         </div>  
         <ol class="menu">
-            <a href="area_client.php"><li><i class="fa-light fa-house"></i>Inicio</li></a>
+            <a href="area_client.php"><li><span><i class="fa-solid fa-house"></i></span>Inicio</li></a>
             <a href="perfil.php"><li><i class="fa-regular fa-circle-user"></i>Mi perfil</li></a>
-            <a href="suscripciones.php"><li><i class="fa-regular fa-list-check"></i>Mis suscripciones</li></a>
+            <a href="suscripciones.php"><li><i class="fa-solid fa-bell-concierge"></i>Mis suscripciones</li></a>
             <a href=""><li><i class="fa-regular fa-bell"></i>Notificaciones</li></a>
-            <a href="../cerrar_sesion.php"><li><i class="fa-regular fa-right-from-bracket"></i>Salir</li></a>
+            <a href="../cerrar_sesion.php"><li><i class="fa-solid fa-right-from-bracket"></i>Salir</li></a>
         </ol>        
     </header>
     <main class="cuerpo">
         <h3>Mis suscripciones</h3><hr>
         <div class="container-sus">
-            <article class="suscripcion">
-                <table>
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="servicio">
-                                <img src="../../img/edeam.png" alt="">
-                                <span>NETFLIX</span>    
-                            </td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article class="suscripcion">
-                <table>
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NETFLIX</td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article class="suscripcion">
-                <table >
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NETFLIX</td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article class="suscripcion">
-                <table >
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NETFLIX</td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article class="suscripcion">
-                <table >
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NETFLIX</td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article class="suscripcion">
-                <table >
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NETFLIX</td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article class="suscripcion">
-                <table >
-                    <caption>Codigo de suscripción 00001</caption>
-                    <thead>
-                        <tr>
-                            <th>Servicio</th>
-                            <th>Plan</th>
-                            <th>Monto</th>
-                            <th>Fecha de suscripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NETFLIX</td>
-                            <td>MENSUAL</td>
-                            <td>S/ 34</td>
-                            <td>12-09-2022</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            
+        <?php 
+            $sql_prod ="SELECT s.tarjeta,s.plan,s.dni_cliente,s.id_prove,s.id_suscripcion,s.fecha_hora,s.total,p.nombre,p.id_proveedor,p.image FROM 
+            suscripciones s, proveedores p WHERE s.id_prove = p.id_proveedor AND s.dni_cliente=$user";  
+            $result_prod = $db_connect -> query($sql_prod);
+            if ($result_prod -> num_rows > 0) {
+                while ( $rows = $result_prod -> fetch_assoc() ) {
+                    $id_pro = $rows['id_proveedor'];
+                    $id_sus = $rows['id_suscripcion'];
+                    $prov = $rows['nombre'];
+                    $plan = $rows['plan'];
+                    $fecha = $rows['fecha_hora'];
+                    $tot = $rows['total'];
+                    $tarjeta = $rows['tarjeta'];
+                    $image = $rows['image'];
+                    echo'
+                        <article class="suscripcion">
+                            <div class="opciones">
+                                <a href="eli_sus.php?id="'.$id_sus.'" style="--bg:#EE3F4F;" title="Anular suscripción"><i class="fa-solid fa-bell-slash"></i></a>
+                                <a href="edi_sus.php?id="'.$id_sus.'" style="--bg:var(--bg-cyan);" title="Cambiar plan"><i class="fa-solid fa-pen-to-square"></i></a>
+                            </div>
+                            <table>
+                                <caption>Codigo de suscripción '.$id_sus.'</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Servicio</th>
+                                        <th>Plan</th>
+                                        <th>Fecha de suscripción</th>
+                                        <th>Tarjeta</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="servicio">
+                                            <img src="data:image/jpg;base64,'.base64_encode($image).'" alt="'.$prov.'">
+                                            <span>'.$prov.'</span>    
+                                        </td>
+                                        <td>'.$plan.'</td>
+                                        <td>'.$fecha.'</td>
+                                        <td>'.$tarjeta.'</td>
+                                        <td>S/ '.$tot.'</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    ';
+                }
+            }
+        ?>            
         </div>
         <div class="total">
-            <i class="fa-light fa-money-bill"></i>
-            TOTAL :<span> S/ 3000</span>
+            <i class="fa-solid fa-money-bill"></i> TOTAL :<span> S/ <?php echo $total_pagar; ?></span>
         </div>
     </main>
     <script>

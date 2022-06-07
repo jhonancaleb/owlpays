@@ -184,6 +184,32 @@ ol.menu li i{
 }
 .suscripcion{
     width: 100%;
+    position: relative;
+}
+.suscripcion .opciones{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 7em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.suscripcion .opciones a{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 33px;
+    color:white;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+    background: var(--bg);
+    font-size: var(--size);
 }
 .suscripcion table{
     width: 100%;
@@ -194,6 +220,7 @@ ol.menu li i{
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
+    margin-top: 35px;
 }
 .suscripcion table caption { 
     display: table-caption;
@@ -236,6 +263,9 @@ ol.menu li i{
 .suscripcion table tbody .servicio span{
     color:var(--bg-cyan);
     font-weight: bold;
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .total{
     position: absolute;
