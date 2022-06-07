@@ -185,6 +185,7 @@ ol.menu li i{
 .cuadro{
     position: relative;
     width: 97%;
+    max-width: 80em;
     height: auto;
     background: white;
     margin: 20px auto;
