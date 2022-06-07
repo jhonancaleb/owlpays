@@ -322,3 +322,15 @@ form .button:hover{
     color:white;
     background: var(--color);
 }
+h5.avisito.error{
+    color:red;
+    font-size: var(--size-small);
+    font-weight: normal;
+    margin-top: 7px;
+}
+h5.avisito.ok{
+    color:var(--bg-cyan);
+    font-size: var(--size-small);
+    font-weight: normal;
+    margin-top: 7px;
+}

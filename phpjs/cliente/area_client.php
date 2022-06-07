@@ -32,11 +32,11 @@
             <i class="fa-regular fa-circle-user"></i>           
         </div>
         <ol class="menu">
-            <a href="area_client.php"><li><i class="fa-light fa-house"></i>Inicio</li></a>
+            <a href="area_client.php"><li><i class="fa-solid fa-house"></i>Inicio</li></a>
             <a href="perfil.php"><li><i class="fa-regular fa-circle-user"></i>Mi perfil</li></a>
-            <a href="suscripciones.php"><li><i class="fa-regular fa-list-check"></i>Mis suscripciones</li></a>
+            <a href="suscripciones.php"><li><i class="fa-solid fa-bell-concierge"></i>Mis suscripciones</li></a>
             <a href=""><li><i class="fa-regular fa-bell"></i>Notificaciones</li></a>
-            <a href="../cerrar_sesion.php"><li><i class="fa-regular fa-right-from-bracket"></i>Salir</li></a>
+            <a href="../cerrar_sesion.php"><li><i class="fa-solid fa-right-from-bracket"></i>Salir</li></a>
         </ol>          
     </header>
     <main class="cuerpo">
@@ -86,6 +86,7 @@
         const btn_clear=document.querySelector('.x')
         function clear_search() {
             document.querySelector('.campo').value="";
+            search();
         } 
         btn_clear.onclick=clear_search;
         //ajax proveedores 
