@@ -20,7 +20,7 @@
             <article class="proveedor">
                 <img src="data:image/jpg;base64,'.base64_encode($image).'" alt="'.$nombre.'">
                 <h3>'.$nombre.'</h3>
-                <a href="">SUSCRIBIRSE</a>
+                <a href="planes.php?id='.$id.'" target="iframe" class="btn-sus" onclick="show_planes();">SUSCRIBIRSE</a>
             </article>
             ';
         }

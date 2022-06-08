@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+:root{
+    --bg-grey: #e5e4e7;
+    --color-letter-1: #696767;
+    --bg-blue: #001c40;
+    --bg-cyan: #3080e9;
+    --bg-yellow-hover:#fab005;
+    --bg-yellow:#ffbe26;
+
+    --color-lila:#c5249d;
+    --color-blue:#192a56;
+    --color-light-blue:#273c75;
+    --color-light-grey:#f5f6fa;
+    --color-grey:#dcdde1;
+    --color-ligth-dark:#353b48;
+    --color-dark:#2f3640;
+    --size:15px;
+    --size-small:13px;
+    --font-poppins:"Poppins",sans-serif;
+    --font-odibee:'Odibee Sans', cursive;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-poppins);
+    text-decoration: none;
+}
+img{
+    width: 30px;
+    height: 30px;
+}
+body{
+    display:flex;
+    width: 200%;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+}
+.elegir{
+    background: rgb(243, 153, 153);
+}
+.suscribirse{
+    background: grey;
+}

@@ -75,6 +75,12 @@
         <div class="container-proveedores" id="proveedores">
         </div>
     </main>
+    <section class="fondo">
+        <div class="container-iframe">
+            <iframe src="" frameborder="0" name="iframe" id="planes"></iframe>
+            <div class="cerrar"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+    </section>
     <script>
         const btn_menu=document.querySelector('.usuario');
         let menu=document.querySelector('.menu');
@@ -113,6 +119,14 @@
                 search(valor);
             }
         })
+
+        //aparecer fondo planes 
+        let planes=document.querySelector('.fondo');
+        let cerrar=document.querySelector('.cerrar');
+        function show_planes(){
+            planes.classList.toggle('active');
+        }
+        cerrar.onclick=show_planes;
     </script>
 </body>
 </html>
