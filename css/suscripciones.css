@@ -289,6 +289,19 @@ ol.menu li i{
 .total span{
     color:var(--color-lila)
 }
+.aviso{
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    grid-gap:20px;
+    margin: 10px auto;
+    color:var(--color-lila);
+    font-weight: bold;
+}
+.aviso img{
+    width: 300px;
+    height: 300px;
+}
 
 
 

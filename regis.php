@@ -158,7 +158,7 @@
         $api=$client->sendChatMessage($to,$body);
         //entrar a su cuenta 
         $_SESSION['username']=$user;
-        echo "<meta http-equiv='refresh' content='1;URL=phpjs/main.php'>";
+        echo "<meta http-equiv='refresh' content='1;URL=phpjs/cliente/area_client.php'>";
     } 
     ob_end_flush();
 ?>

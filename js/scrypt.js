@@ -43,7 +43,12 @@ function valide(event){
 }
 //funcion ajax de registrar 
 $('#btn-regis').click(function(){
-    if($("#nombres").val().length ==0 || $("#correo").val().length ==0 || $("#password").val().length ==0){
+    //onkeyup validar correo"
+    emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;  
+    if(!emailRegex.test(document.querySelector('#correo').value)){ 
+        $("#aviso").html('<h4 class="avisito warning"><i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i> Ingrese un correo válido.</h4>')
+    }
+    else if($("#nombres").val().length ==0 || $("#password").val().length ==0){
         $("#aviso").html('<h4 class="warning"><i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i>Por favor. Complete todos los datos.</h4>')
     }
     else if($("#tele").val().length !=9) {

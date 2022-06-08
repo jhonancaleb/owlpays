@@ -90,6 +90,14 @@
                     ';
                 }
             }
+            else{
+                echo'
+                <div class="aviso">
+                    <img src="../../img/vacio.png" alt="vacio">
+                    <p>Al parecer aún no tiene suscripciones.</p>
+                </div>
+                ';
+            }
         ?>            
         </div>
         <div class="total">
