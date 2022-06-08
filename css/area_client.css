@@ -382,8 +382,7 @@ ul.categorias li:hover:after{
     width: 90%;
     max-width: 70em;
     height: 25vw;
-    min-height: 25em;
-    background: white;
+    min-height: 30em;
     z-index: 1001;
     padding: 50px;
     border-radius: 10px;
@@ -391,6 +390,7 @@ ul.categorias li:hover:after{
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    background: var(--color-light-grey);
 }
 .fondo .container-iframe .cerrar{
     position: absolute;

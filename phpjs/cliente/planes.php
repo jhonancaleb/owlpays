@@ -38,23 +38,112 @@
         <div class="planes">
             <article>
                 <p>SEMANAL</p>
-                <h1><?php echo $plan1;?></h1>
+                <h1>S/ <?php echo $plan1;?></h1>
                 <button id="plan1">Comprar</button>
             </article>
             <article>
                 <p>QUINCENAL</p>
-                <h1><?php echo $plan2;?></h1>
+                <h1>S/ <?php echo $plan2;?></h1>
                 <button id="plan2">Comprar</button>            
             </article>
             <article>
                 <p>MENSUAL</p>
-                <h1><?php echo $plan3;?></h1>
+                <h1>S/ <?php echo $plan3;?></h1>
                 <button id="plan3">Comprar</button>
             </article>
         </div>
     </div>
     <div class="container suscribirse">
-
+        <div class="volver">
+            <i class="fa-solid fa-angles-left"></i> Volver a planes
+        </div>
+        <form method="post" id="form-plan-ele">
+            <h3>Datos de la suscripción</h3>
+            <div class="campos">
+                <fieldset class="servicio">
+                        <legend>Servicio</legend>
+                        <input type="text" class="campo" name="tx_servicio" id="tx_servicio" readonly>
+                </fieldset>
+                <fieldset class="plan">
+                        <legend>Plan</legend>
+                        <input type="text" class="campo" name="tx_plan" id="tx_plan" readonly>
+                </fieldset>
+                <fieldset class="precio">
+                        <legend>Precio S/</legend>
+                        <input type="text" class="campo" name="tx_precio" id="tx_precio" readonly>
+                </fieldset>
+                <fieldset class="tarjeta">
+                        <legend>Tarjeta crédito/débito</legend>
+                        <input type="text" class="campo" name="tx_tarjeta" id="tx_tarjeta" onkeypress="valide(event);" maxlength="16" minlength="16" placeholder="Escriba el número de su tarjeta">
+                </fieldset>
+                <div id="aviso"></div>
+                <input type="submit" value="Suscribirse" id="btn-sus" class="submit">
+            </div>
+        </form>
     </div>
+    <script>
+        function valide(event){
+            if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;
+        }
+        //slider
+        let container1=document.querySelector('.elegir');
+        let container2=document.querySelector('.suscribirse');
+        const volver=document.querySelector('.volver');
+        function slider(){
+            container1.classList.toggle('active');
+            container2.classList.toggle('active');
+        }
+        volver.onclick=slider;
+        //llenar datos al elegir plan
+        const btn_plan1=document.querySelector('#plan1');
+        const btn_plan2=document.querySelector('#plan2');
+        const btn_plan3=document.querySelector('#plan3');
+        //campos
+        var campo_servicio=document.querySelector('#tx_servicio');
+        var campo_plan=document.querySelector('#tx_plan');
+        var campo_precio=document.querySelector('#tx_precio');
+        var campo_tarjeta=document.querySelector('#tx_tarjeta');
+        function plan1(){
+            campo_plan.value='SEMANAL';  
+            campo_precio.value='<?php echo $plan1;?>';  
+            campo_servicio.value=' <?php echo $nombre;?>';  
+            slider();
+        }
+        btn_plan1.onclick=plan1;
+        function plan2(){
+            campo_plan.value='QUINCENAL';  
+            campo_precio.value='<?php echo $plan2;?>';  
+            campo_servicio.value=' <?php echo $nombre;?>';   
+            slider();
+        }
+        btn_plan2.onclick=plan2;
+        function plan3(){
+            campo_plan.value='MENSUAL';  
+            campo_precio.value='<?php echo $plan3;?>';  
+            campo_servicio.value=' <?php echo $nombre;?>';  
+            slider();
+        }
+        btn_plan3.onclick=plan3;
+
+        //funcion ajax de registrar suscripcion
+        $('#btn-sus').click(function(){
+            if($("#tx_tarjeta").val().length == 0){
+                $("#aviso").html('<h4 class="warning"><i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i> Por favor. Escriba su número de tarjeta.</h4>')
+            }
+            else{
+                var datos=$('#form-plan-ele').serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "suscribe.php?id=<?php echo $id;?>",
+                    data: datos,
+
+                    success: function (r) {
+                        $("#aviso").html(r);                      
+                    }
+                });
+            }
+            return false;
+        })
+    </script>
 </body>
 </html>

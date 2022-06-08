@@ -28,23 +28,201 @@
     text-decoration: none;
 }
 img{
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
 }
 body{
     display:flex;
     width: 200%;
+    overflow: hidden;
 }
 .container{
-    width: 100%;
+    position: relative;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-between;
+    transition: all 0.3s;
 }
-.elegir{
-    background: rgb(243, 153, 153);
+.elegir{  
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.elegir.active{
+    margin-left:-50%;
+}
+.elegir .proveedor{
+    display: flex;
+    gap:7px;
+    align-items: center;
+}
+.elegir .planes{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+.elegir .planes article{
+    width: 32%;
+    max-width:17em;
+    height: 30vw;
+    min-height:18em;
+    border: 2px solid var(--bg-cyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px auto;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    transition:all .3s;;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    -ms-transition:all .3s;
+    -o-transition:all .3s;
+    background: white;
+}
+.elegir .planes article:hover{
+    transform:scale(1.04);
+    -webkit-transform:scale(1.04);
+    -moz-transform:scale(1.04);
+    -ms-transform:scale(1.04);
+    -o-transform:scale(1.04);
+}
+.elegir .planes article p{
+    color:var(--color-blue);
+    font-size:var(--size);
+}
+.elegir .planes article h1{
+    color:var(--color-lila);
+    font-size: 35px;
+}
+.elegir .planes article button{
+    border:1px solid var(--color-blue);
+    background: var(--bg-yellow);
+    color:var(--color-blue);
+    padding: 5px 10px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+    cursor:pointer;
+    font-size:var(--size);
 }
 .suscribirse{
-    background: grey;
+    position: relative;
+    background: none;
+    text-align:center; 
+    padding: 20px 40px;    
+}
+.suscribirse .volver{
+    position: absolute;
+    right: 5px;
+    top:2px ;
+    font-size: var(--size-small);
+    font-weight: bold;
+    color:var(--bg-yellow-hover);
+    cursor:pointer;
+}
+.suscribirse form h3{
+    color:var(--color-lila);
+    letter-spacing:2px;
+    font-size:30px;;
+}
+.suscribirse .campos{
+    width: 100%;
+    display: grid;
+    grid-template-areas: "servicio plan"
+                         "precio precio"
+                         "tarjeta tarjeta"
+                         "aviso aviso"
+                         "submit submit";
+    grid-gap:10px;
+    place-items: center;
+}
+.suscribirse .campos .servicio{
+    grid-area: servicio;
+}
+.suscribirse .campos .plan{
+    grid-area: plan;
+}
+.suscribirse .campos .precio{
+    grid-area: precio;
+    width: 60%;
+    border:2px solid var(--bg-yellow);
+}
+.suscribirse .campos .tarjeta{
+    grid-area: tarjeta;
+    width: 90% !important;
+}
+fieldset{
+    width: 98%;
+    padding: 5px;
+    border-radius:15px;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    -ms-border-radius:15px;
+    -o-border-radius:15px;
+    border:2px solid var(--color-light-blue);
+    display:grid;
+    place-items: center;
+    background: white;
+}
+fieldset legend{
+    font-size: var(--size);
+    letter-spacing:2px;
+    font-weight:bold;
+}
+fieldset .campo{
+    border:none;
+    padding: 0 10px;
+    background: transparent;
+    width: 100%;
+    font-size: 17px;
+    color:var(--bg-cyan);
+    text-align: center;
+}
+fieldset .campo:focus{
+    outline:none;
+}
+#aviso{
+    grid-area: aviso;
+    font-size: var(--size-small);
+    font-weight: normal;
+    margin-top: 3px;
+    color:red;
+}
+#aviso.ok{
+    color:var(--bg-cyan);
+}
+.submit{
+    width: 60%;
+    grid-area: submit;
+    border:2px solid var(--color-blue);
+    background: var(--bg-yellow);
+    padding: 10px;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    cursor:pointer;
+    font-size:var(--size);
+    font-weight:bold;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.submit:hover{
+    background: var(--bg-yellow-hover);
+    letter-spacing:2px;
 }
