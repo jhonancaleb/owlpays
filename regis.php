@@ -2,7 +2,7 @@
     ob_start();
     session_start();
     if(isset($_SESSION['username'])){
-        header('Location:phpjs/main.php');
+        header('Location:phpjs/cliente/area_client.php');
     }
     include ("phpjs/conectar.php");
                             

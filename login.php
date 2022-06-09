@@ -2,7 +2,7 @@
     ob_start();
     session_start();
     if(isset($_SESSION['username'])){
-        header('Location:phpjs/main.php');
+        header('Location:phpjs/cliente/area_client.php');
     }
 ?>
 <!DOCTYPE html>
@@ -33,11 +33,11 @@
                         <h2>Iniciar Sesión</h2>
                         <div class="campo">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" name="tx_usuario" id="" maxlength="8" minlength="8" placeholder="Usuario" required>
+                            <input type="text" name="tx_usuario" maxlength="8" minlength="8" placeholder="Usuario" required>
                         </div>
                         <div class="campo">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" name="tx_password" id="" placeholder="Contraseña" required>
+                            <input type="password" name="tx_password" placeholder="Contraseña" required>
                         </div>
                         <?php
                             if(isset($_POST['tx_usuario'])&& isset($_POST['tx_password'])) 
