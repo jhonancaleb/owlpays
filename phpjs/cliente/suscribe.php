@@ -56,7 +56,6 @@
                    $name = $rows['nombres'];
                    $name_prove= $rows['nombre'];
                    $correo_destino= $rows['correo'];
-                   $imagen= $rows['image'];
                    }          
             //envio a correo
             /* $asunto="SUSCRIPCIÓN A ".$name_prove.".";

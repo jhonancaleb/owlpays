@@ -44,7 +44,7 @@
         <div class="container-sus">
         <?php 
             $sql_prod ="SELECT s.tarjeta,s.plan,s.dni_cliente,s.id_prove,s.id_suscripcion,s.fecha_hora,s.total,p.nombre,p.id_proveedor,p.image FROM 
-            suscripciones s, proveedores p WHERE s.id_prove = p.id_proveedor AND s.dni_cliente=$user";  
+            suscripciones s, proveedores p WHERE s.id_prove = p.id_proveedor AND s.dni_cliente=$user ORDER BY s.id_suscripcion DESC";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
                 while ( $rows = $result_prod -> fetch_assoc() ) {

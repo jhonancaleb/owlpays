@@ -1,0 +1,46 @@
+{
+    "packages": [
+        {
+            "name": "ultramsg/whatsapp-php-sdk",
+            "version": "2.0.3",
+            "version_normalized": "2.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ultramsg/whatsapp-php-sdk.git",
+                "reference": "5d64b56c69ba5c7f5ed661f7221c26eb69bdd50f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ultramsg/whatsapp-php-sdk/zipball/5d64b56c69ba5c7f5ed661f7221c26eb69bdd50f",
+                "reference": "5d64b56c69ba5c7f5ed661f7221c26eb69bdd50f",
+                "shasum": ""
+            },
+            "time": "2022-04-04T19:49:16+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "ultramsg.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ultramsg.com",
+                    "email": "info@ultramsg.com"
+                }
+            ],
+            "description": "Lightweight PHP library for WhatsApp API to send the whatsappp messages in PHP provided by ultramsg.com",
+            "support": {
+                "issues": "https://github.com/ultramsg/whatsapp-php-sdk/issues",
+                "source": "https://github.com/ultramsg/whatsapp-php-sdk/tree/2.0.3"
+            },
+            "install-path": "../ultramsg/whatsapp-php-sdk"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
