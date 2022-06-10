@@ -50,6 +50,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center; 
+    overflow:auto;
 }
 .elegir.active{
     margin-left:-50%;
@@ -63,10 +64,13 @@ body{
     width: 100%;
     height: 100%;
     display:flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
 }
 .elegir .planes article{
     width: 32%;
+    min-width: 14em;
     max-width:17em;
     height: 30vw;
     min-height:18em;
@@ -134,7 +138,7 @@ body{
 .suscribirse form h3{
     color:var(--color-lila);
     letter-spacing:2px;
-    font-size:30px;;
+    font-size:30px;
 }
 .suscribirse .campos{
     width: 100%;
@@ -160,7 +164,7 @@ body{
 }
 .suscribirse .campos .tarjeta{
     grid-area: tarjeta;
-    width: 90% !important;
+    width: 90%;
 }
 fieldset{
     width: 98%;
@@ -226,3 +230,35 @@ fieldset .campo:focus{
     background: var(--bg-yellow-hover);
     letter-spacing:2px;
 }
+@media screen and (max-width:660px){
+    .elegir .planes article{
+        width: 22%;
+        min-width: 10em;
+        height: 23vw;
+        min-height: 12em;
+    }
+    .elegir .planes article p{
+        font-size:var(--size-small);
+    }
+    .elegir .planes article h1{
+        font-size: 19px;
+    }
+    .elegir .planes article button{
+        font-size:var(--size-small);
+    }
+    .suscribirse .campos{
+        display: flex;
+        flex-direction: column;        
+    }
+    fieldset,.campo,.tarjeta{
+        width: 100% !important;
+        font-size: var(--size-small) !important;
+    }
+    .submit{
+        font-size: var(--size-small) !important;
+        padding: 5px;
+    }
+    .suscribirse form h3{
+        font-size:var(--size);
+    }
+} 

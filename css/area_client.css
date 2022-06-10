@@ -223,6 +223,7 @@ ul.categorias{
     list-style: none;
     margin: 20px auto;
     width: 50%;
+    min-width: 20em;
 }
 ul.categorias li{
     position: relative;
@@ -435,5 +436,15 @@ ul.categorias li:hover:after{
         width: 120%;
         left: -10%;
         top: -34px;
+    }
+}
+@media screen and (max-width:837px){
+    .container-iframe{
+        height: 60vh !important;
+    }
+}
+@media screen and (max-width:107px){
+    .container-iframe{
+        height: 100vh !important;
     }
 }
