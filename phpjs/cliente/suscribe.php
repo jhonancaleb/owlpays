@@ -13,19 +13,19 @@
     $tarjeta=$_POST['tx_tarjeta'];
     //fechas
     ini_set('date.timezone','America/Lima');
-    $fecha=date('Y-m-d H:i:s');
+    $fecha=date('Y-m-d');
     //FECHA_FINAL
     if($plan=='MENSUAL'){
         $mod_date = strtotime($fecha."+ 1 month");
-        $fecha_fin=date("Y-m-d H:i:s",$mod_date);
+        $fecha_fin=date("Y-m-d",$mod_date);
     }
     elseif($plan=='SEMANAL'){
         $mod_date = strtotime($fecha."+ 1 week");
-        $fecha_fin=date("Y-m-d H:i:s",$mod_date);
+        $fecha_fin=date("Y-m-d",$mod_date);
     }
     elseif($plan=='QUINCENAL'){
         $mod_date = strtotime($fecha."+ 15 days");
-        $fecha_fin=date("Y-m-d H:i:s",$mod_date);
+        $fecha_fin=date("Y-m-d",$mod_date);
     }
     //comprbar si ya sta suscrito a este servicio
     $sql="SELECT * from suscripciones where id_prove=$id";

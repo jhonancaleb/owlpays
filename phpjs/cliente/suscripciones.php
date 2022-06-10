@@ -43,7 +43,7 @@
         <h3>Mis suscripciones</h3><hr>
         <div class="container-sus">
         <?php 
-            $sql_prod ="SELECT s.tarjeta,s.plan,s.dni_cliente,s.id_prove,s.id_suscripcion,s.fecha_hora,s.total,p.nombre,p.id_proveedor,p.image FROM 
+            $sql_prod ="SELECT s.tarjeta,s.plan,s.dni_cliente,s.id_prove,s.id_suscripcion,s.fecha_fin,s.fecha_hora,s.total,p.nombre,p.id_proveedor,p.image FROM 
             suscripciones s, proveedores p WHERE s.id_prove = p.id_proveedor AND s.dni_cliente=$user ORDER BY s.id_suscripcion DESC";  
             $result_prod = $db_connect -> query($sql_prod);
             if ($result_prod -> num_rows > 0) {
@@ -53,9 +53,16 @@
                     $prov = $rows['nombre'];
                     $plan = $rows['plan'];
                     $fecha = $rows['fecha_hora'];
+                    $fecha_fin = $rows['fecha_fin'];
                     $tot = $rows['total'];
                     $tarjeta = $rows['tarjeta'];
                     $image = $rows['image'];
+                    //convert fechas de string a  fecha
+                    $date1 = new DateTime($fecha_fin);
+                    $date2 = new DateTime("now");
+                    $diff = $date1->diff($date2);
+                    // this will output 4 days                           
+                    $dias=$diff->days;
                     echo'
                         <article class="suscripcion table-responsive">
                             <div class="opciones">
@@ -69,8 +76,10 @@
                                         <th>Servicio</th>
                                         <th>Plan</th>
                                         <th>Fecha de suscripción</th>
+                                        <th>Fecha fin</th>
                                         <th>Tarjeta</th>
                                         <th>Monto</th>
+                                        <th>Días restantes</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -81,8 +90,10 @@
                                         </td>
                                         <td>'.$plan.'</td>
                                         <td>'.$fecha.'</td>
+                                        <td>'.$fecha_fin.'</td>
                                         <td>'.$tarjeta.'</td>
                                         <td>S/ '.$tot.'</td>
+                                        <td class="dias">'.$dias.'</td>
                                     </tr>
                                 </tbody>
                             </table>

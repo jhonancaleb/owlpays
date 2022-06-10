@@ -277,6 +277,10 @@ ol.menu li i{
     text-overflow: ellipsis;
     overflow: hidden;
 }
+.dias{
+    color: var(--color-lila);
+    font-weight: bold;
+}
 .total{
     position: absolute;
     top: 95px;

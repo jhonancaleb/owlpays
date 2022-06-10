@@ -259,6 +259,11 @@ ul li{
     font-size: var(--size-small);
     color:var(--bg-cyan);
     cursor:pointer;
+    width: 20%;
+    height: 15px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    text-align: center;
 }
 .link:hover{
     text-decoration: underline;
@@ -275,7 +280,8 @@ ul li{
 }
 #fondo.active{display:grid !important;}
 #fondo form{
-    width: 30em;
+    max-width: 30em;
+    width:60%;
     background: white;
     padding: 40px 50px ;
     border-radius:7px;
@@ -334,4 +340,9 @@ h5.avisito.ok{
     font-size: var(--size-small);
     font-weight: normal;
     margin-top: 7px;
+}
+@media screen and (max-width: 544px) {
+    form{
+        width: 90% !important;
+    }
 }
