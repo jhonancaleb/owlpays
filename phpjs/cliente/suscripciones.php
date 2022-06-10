@@ -87,7 +87,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="servicio">
-                                            <img src="data:image/jpg;base64,<?php echo base64_encode($image); ?>" alt="'.$prov.'">
+                                            <img loading="lazy" src="data:image/jpg;base64,<?php echo base64_encode($image); ?>" alt="'.$prov.'">
                                             <span><?php echo $prov; ?></span>    
                                         </td>
                                         <td><?php echo $plan; ?></td>

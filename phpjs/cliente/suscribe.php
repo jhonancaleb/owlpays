@@ -72,8 +72,8 @@
                         align-items: center;
                     }
                     .container-mensaje{
-                        width: 30em;
-                        height: 35em;
+                        width: 33em;
+                        height: 39em;
                         padding: 10px 40px;
                         border:3px solid rgb(230, 223, 223);
                     }
@@ -149,7 +149,7 @@
                         <h1>SUSCRIPCIÓN EXITOSA</h1>
                         <p class="mensaje">Hola '.$name.'.Acabas de realizar una suscripción a un servicio de <span>'.$name_prove.'</span>.</p>
                         <div class="suscripcion">
-                        <img src="data:image/jpg;base64,'.base64_encode($imagen).'" alt="" class="img-service">
+                        <img src="" alt="" class="img-service">
                             <div class="datos">
                                 <table>
                                     <tr>

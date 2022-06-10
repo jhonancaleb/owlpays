@@ -32,7 +32,7 @@
 <body>
     <div class="container elegir">
         <div class="proveedor">
-            <img src="data:image/jpg;base64,<?php echo base64_encode($image);?>" alt="<?php echo $nombre;?>">
+            <img src="image.php?id=<?php echo $id; ?>" alt="<?php echo $nombre;?>">
             <h3><?php echo $nombre;?></h3>
         </div>
         <div class="planes">

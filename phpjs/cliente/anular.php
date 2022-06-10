@@ -19,7 +19,7 @@
                $correo_destino= $rows['correo'];
                }          
         //envio a correo
-        /* $asunto="SUSCRIPCIÓN A ".$name_prove.".";
+        /* $asunto="SUSCRIPCION CANCELADA ".$name_prove.".";
         $destinatario=$correo_destino;
         $cuerpo='
         <!DOCTYPE html>

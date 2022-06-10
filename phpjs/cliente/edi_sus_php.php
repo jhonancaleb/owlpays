@@ -34,15 +34,6 @@
     //modificar plan
     $editar="UPDATE suscripciones SET plan='$plan', fecha_fin='$fecha_fin', total=$precio WHERE id_suscripcion=$id";
     if($result=$db_connect -> query($editar)){
-        echo'
-        <h4 class="warning"><i class="fa-solid fa-check"></i> Cambio de plan realizado con exito.</h4>
-        <script>
-            document.querySelector("#aviso").classList.add("ok");
-            setTimeout(function(){
-                top.location.reload();
-            },1500);
-        </script>
-        ';
         //enviar mensaje
         $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$id_prove";  
         $result_prod = $db_connect -> query($sql_prod);
@@ -53,7 +44,7 @@
                $correo_destino= $rows['correo'];
                }          
         //envio a correo
-        /* $asunto="SUSCRIPCIÓN A ".$name_prove.".";
+        /* $asunto="CAMBIO DE PLAN ".$name_prove.".";
         $destinatario=$correo_destino;
         $cuerpo='
         <!DOCTYPE html>
@@ -191,6 +182,15 @@
       $to="+51".$number; 
       $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
       $api=$client->sendChatMessage($to,$body); */
+      echo'
+        <h4 class="warning"><i class="fa-solid fa-check"></i> Cambio de plan realizado con exito.</h4>
+        <script>
+            document.querySelector("#aviso").classList.add("ok");
+            setTimeout(function(){
+                top.location.reload();
+            },1500);
+        </script>
+        ';
     }
     else{
         echo'
