@@ -1,34 +1,60 @@
 <?php
     ob_start();
     session_start();
-    if(isset($_SESSION['username'])){
-        header('Location:phpjs/cliente/area_client.php');
+    if(!isset($_SESSION['username'])){
+        header('Location:../../login.php');
     }
-    include ("phpjs/conectar.php");
-                            
-    $correo=$_POST['tx_correo'];
-    $names=$_POST['tx_nombres'];
-    $user=$_POST['tx_dni'];
-    $correo=$_POST['tx_correo'];
-    $telefono=$_POST['tx_tele'];
-    $contrase=$_POST['tx_pass'];
-    $sql_prod ="SELECT * FROM usuarios WHERE dni_cliente=$user OR telefono=$telefono OR correo='$correo'";  
+    include '../conectar.php';
+    $user=$_SESSION['username'];                            
+    $id=$_GET['id_sus'];
+    $id_prove=$_GET['id_prove'];
+    $plan=$_POST['tx_plan'];
+    $precio=$_POST['tx_precio'];
+    //fecha-fin nueva
+    $sql_prod ="SELECT * FROM suscripciones where id_suscripcion=$id";  
     $result_prod = $db_connect -> query($sql_prod);
-    if ($result_prod -> num_rows > 0) {
-        echo'
-        <h4>
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        Al parecer alguien ya esta registrado con los mismos datos.
-        </h4>
-        ';
+    while ( $rows = $result_prod -> fetch_assoc() ) {
+        $fecha_ini = $rows['fecha_hora'];
     }
-    else{
-        //crear cuenta
-        $insertar="insert into usuarios values('$user','$names','$correo','$telefono','$contrase','2')";
-        $result= $db_connect -> query($insertar);
-       /* //enviar mail de bienvenida
-        $asunto="BIENVENIDO A OWLPAYS";
-        $destinatario=$correo;
+    //fechas
+    ini_set('date.timezone','America/Lima');
+    //FECHA_FINAL
+    if($plan=='MENSUAL'){
+        $mod_date = strtotime($fecha_ini."+ 1 month");
+        $fecha_fin=date("Y-m-d",$mod_date);
+    }
+    elseif($plan=='SEMANAL'){
+        $mod_date = strtotime($fecha_ini."+ 1 week");
+        $fecha_fin=date("Y-m-d",$mod_date);
+    }
+    elseif($plan=='QUINCENAL'){
+        $mod_date = strtotime($fecha_ini."+ 15 days");
+        $fecha_fin=date("Y-m-d",$mod_date);
+    }
+    //modificar plan
+    $editar="UPDATE suscripciones SET plan='$plan', fecha_fin='$fecha_fin', total=$precio WHERE id_suscripcion=$id";
+    if($result=$db_connect -> query($editar)){
+        echo'
+        <h4 class="warning"><i class="fa-solid fa-check"></i> Cambio de plan realizado con exito.</h4>
+        <script>
+            document.querySelector("#aviso").classList.add("ok");
+            setTimeout(function(){
+                top.location.reload();
+            },1500);
+        </script>
+        ';
+        //enviar mensaje
+        $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$id_prove";  
+        $result_prod = $db_connect -> query($sql_prod);
+         while ( $rows = $result_prod -> fetch_assoc() ) {
+               $number = $rows['telefono'];
+               $name = $rows['nombres'];
+               $name_prove= $rows['nombre'];
+               $correo_destino= $rows['correo'];
+               }          
+        //envio a correo
+        /* $asunto="SUSCRIPCIÓN A ".$name_prove.".";
+        $destinatario=$correo_destino;
         $cuerpo='
         <!DOCTYPE html>
         <html lang="en">
@@ -124,12 +150,21 @@
                 </div>
                 <hr>
                 <div class="cuerpo">
-                    <h1>BIENVENIDO</h1>
-                    <p class="mensaje">Hola '.$names.'. Acabas de inscribirte a OwlPays, la pagina que contiene los servicios mas populares del mercado. </p>
+                    <h1>SUSCRIPCIÓN EXITOSA</h1>
+                    <p class="mensaje">Hola '.$name.'.Acabas de cambiar el plan de tu suscripción a <span>'.$name_prove.'</span>.</p>
                     <div class="suscripcion">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4245/4245516.png" alt="" class="img-service">
+                    <img src="https://cdn-icons-png.flaticon.com/128/7318/7318452.png" alt="" class="img-service">
                         <div class="datos">
-                            <p>Te damos la bienvenida. Esperamos que estes bien y que tu estadía sea larga. </p>
+                            <table>
+                                <tr>
+                                    <td class="th">Plan</td>
+                                    <td>'.$plan.'</td>
+                                </tr>
+                                <tr>
+                                    <td class="th">Precio</td>
+                                    <td>S/'.$precio.'</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div> 
@@ -138,27 +173,30 @@
                     <p>
                         Ha recibido esta notificación obligatoria del servicio de correo electrónico para mantenerle actualizado acerca de los cambios importantes en el producto o en la cuenta de OwlPays.</p>
                 </div>
+                    
             </div>      
         </body>
         </html>
         ';
         //cabeceras para el envio del correo en formato html
-        $cabecera="MIME-Version: 1.0\r\n";
-        $cabecera.="Content-type: text/html; charset=iso-8859-1\r\n";
-        mail($destinatario,$asunto,$cuerpo,$cabecera); */
-        //envio al WhatsAppApi
-        //envio de mesaje de watsaap
-        require_once ('phpjs/vendor/autoload.php'); // if you use Composer
+       $cabecera="MIME-Version: 1.0\r\n";
+       $cabecera.="Content-type: text/html; charset=iso-8859-1\r\n";
+       mail($destinatario,$asunto,$cuerpo,$cabecera);  */
+       //envio de mesaje de watsaap
+       /* require_once ('vendor/autoload.php'); // if you use Composer
         //require_once('ultramsg.class.php'); // if you download ultramsg.class.php
-        $token="pkognlf2rjj1xurl"; // Ultramsg.com token
-        $instance_id="instance7176"; // Ultramsg.com instance id
-        $client = new UltraMsg\WhatsAppApi($token,$instance_id);
-        $to="+51".$telefono; 
-        $body="BIENVENIDO A OWLPAYS\n Hola".$names."\nTe acabas de inscribir a OwlPays, la página con los servicios mas populares del mercado.Esperamos que tu estadía sea larga.\nAtentamente OwlPays."; 
-        $api=$client->sendChatMessage($to,$body);
-        //entrar a su cuenta 
-        $_SESSION['username']=$user;
-        echo "<meta http-equiv='refresh' content='1;URL=phpjs/cliente/area_client.php'>";
-    } 
+      $token="pkognlf2rjj1xurl"; // Ultramsg.com token
+      $instance_id="instance7176"; // Ultramsg.com instance id
+      $client = new UltraMsg\WhatsAppApi($token,$instance_id);
+      $to="+51".$number; 
+      $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
+      $api=$client->sendChatMessage($to,$body); */
+    }
+    else{
+        echo'
+        <h4 class="warning"><i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i> Al parecer ocurrió un error.</h4>
+        ';
+    }  
+    
     ob_end_flush();
 ?>

@@ -150,7 +150,7 @@
             <body>
                 <div class="container-mensaje">
                     <div class="header">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2369/2369321.png" alt="Buho.png" clas="img-logo">
+                    <img src="https://img.icons8.com/cotton/344/owl--v2.png" alt="Buho.png" clas="img-logo">
                     <label for="">OwlPays</label>
                     </div>
                     <hr>

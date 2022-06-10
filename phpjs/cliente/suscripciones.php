@@ -63,14 +63,16 @@
                     $diff = $date1->diff($date2);
                     // this will output 4 days                           
                     $dias=$diff->days;
-                    echo'
+                    ?>
+                    
+                    
                         <article class="suscripcion table-responsive">
                             <div class="opciones">
-                                <a href="eli_sus.php?id="'.$id_sus.'" style="--bg:#EE3F4F;" title="Anular suscripción"><i class="fa-solid fa-bell-slash"></i></a>
-                                <a href="edi_sus.php?id="'.$id_sus.'" style="--bg:var(--bg-cyan);" title="Cambiar plan"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a onclick="cancel('<?php echo $id_sus; ?>','<?php echo $id_pro; ?>');" style="--bg:#EE3F4F;" title="Anular suscripción"><i class="fa-solid fa-bell-slash"></i></a>
+                                <a href="edi_sus.php?id_sus=<?php echo $id_sus; ?>&id_pro=<?php echo $id_pro; ?>" target="iframe" onclick="show_edit();" style="--bg:var(--bg-cyan);" title="Cambiar plan"><i class="fa-solid fa-pen-to-square"></i></a>
                             </div>
                             <table>
-                                <caption>Codigo de suscripción '.$id_sus.'</caption>
+                                <caption>Codigo de suscripción <?php echo $id_sus; ?></caption>
                                 <thead>
                                     <tr>
                                         <th>Servicio</th>
@@ -85,20 +87,21 @@
                                 <tbody>
                                     <tr>
                                         <td class="servicio">
-                                            <img src="data:image/jpg;base64,'.base64_encode($image).'" alt="'.$prov.'">
-                                            <span>'.$prov.'</span>    
+                                            <img src="data:image/jpg;base64,<?php echo base64_encode($image); ?>" alt="'.$prov.'">
+                                            <span><?php echo $prov; ?></span>    
                                         </td>
-                                        <td>'.$plan.'</td>
-                                        <td>'.$fecha.'</td>
-                                        <td>'.$fecha_fin.'</td>
-                                        <td>'.$tarjeta.'</td>
-                                        <td>S/ '.$tot.'</td>
-                                        <td class="dias">'.$dias.'</td>
+                                        <td><?php echo $plan; ?></td>
+                                        <td><?php echo $fecha; ?></td>
+                                        <td><?php echo $fecha_fin; ?></td>
+                                        <td><?php echo $tarjeta; ?></td>
+                                        <td><?php echo $total_pagar; ?></td>
+                                        <td class="dias"><?php echo $dias; ?></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </article>
-                    ';
+                    
+                    <?php
                 }
             }
             else{
@@ -115,6 +118,12 @@
             <i class="fa-solid fa-money-bill"></i> TOTAL :<span> S/ <?php echo $total_pagar; ?></span>
         </div>
     </main>
+    <section class="fondo">
+        <div class="container-iframe">
+            <iframe src="" frameborder="0" name="iframe" id="planes"></iframe>
+            <div class="cerrar"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+    </section>
     <script>
         const btn_menu=document.querySelector('.usuario');
         let menu=document.querySelector('.menu');
@@ -122,6 +131,20 @@
             menu.classList.toggle('active');
         }
         btn_menu.onclick=show_menu;
+
+        //aparecer fondo planes 
+        let edit=document.querySelector('.fondo');
+        let cerrar=document.querySelector('.cerrar');
+        function show_edit(){
+            edit.classList.toggle('active');
+        }
+        cerrar.onclick=show_edit;
+        //funcion al confrimar que si desea cancelar
+        function cancel(id_sus,id_pro){
+            if(confirm('¿Enserio desea cancelar esta suscripción?')){
+                window.location.href = "anular.php?id_sus="+id_sus+"&id_pro="+id_pro+"";
+            }
+        }
     </script>
 </body>
 </html>
