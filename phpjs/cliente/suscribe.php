@@ -39,15 +39,6 @@
         $insertar="INSERT INTO suscripciones(dni_cliente,id_prove,plan,tarjeta,fecha_hora,fecha_fin,total) 
         values('$user','$id','$plan','$tarjeta','$fecha','$fecha_fin','$precio')";
         if($result=$db_connect -> query($insertar)){
-            echo'
-            <h4 class="warning"><i class="fa-solid fa-check"></i> Suscripción relizada con exito.</h4>
-            <script>
-                document.querySelector("#aviso").classList.add("ok");
-                setTimeout(function(){
-                    top.location.reload();
-                },1500);
-            </script>
-            ';
             //enviar mensaje
             $sql_prod ="SELECT u.nombres,u.telefono, p.nombre,u.correo FROM usuarios u , proveedores p WHERE dni_cliente=$user and id_proveedor=$id";  
             $result_prod = $db_connect -> query($sql_prod);
@@ -199,6 +190,15 @@
           $to="+51".$number; 
           $body="Hola ".$name."\nTe acabas de suscribir a ".$name_prove."\nPlan  : ".$plan.".\nPrecio: S/".$precio.".\nAtentamente OwlPays."; 
           $api=$client->sendChatMessage($to,$body);
+          echo'
+            <h4 class="warning"><i class="fa-solid fa-check"></i> Suscripción relizada con exito.</h4>
+            <script>
+                document.querySelector("#aviso").classList.add("ok");
+                setTimeout(function(){
+                    top.location.reload();
+                },1500);
+            </script>
+            ';
         }
         else{
             echo'

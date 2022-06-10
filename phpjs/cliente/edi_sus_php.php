@@ -76,8 +76,8 @@
                     align-items: center;
                 }
                 .container-mensaje{
-                    width: 30em;
-                    height: 35em;
+                    width: 35em;
+                    height: 38em;
                     padding: 10px 40px;
                     border:3px solid rgb(230, 223, 223);
                 }
@@ -150,7 +150,7 @@
                 </div>
                 <hr>
                 <div class="cuerpo">
-                    <h1>SUSCRIPCIÓN EXITOSA</h1>
+                    <h1>CAMBIO DE PLAN</h1>
                     <p class="mensaje">Hola '.$name.'.Acabas de cambiar el plan de tu suscripción a <span>'.$name_prove.'</span>.</p>
                     <div class="suscripcion">
                     <img src="https://cdn-icons-png.flaticon.com/128/7318/7318452.png" alt="" class="img-service">

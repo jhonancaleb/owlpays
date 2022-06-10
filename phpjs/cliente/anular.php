@@ -116,22 +116,10 @@
                 </div>
                 <hr>
                 <div class="cuerpo">
-                    <h1>Suscripción Cancelada</h1>
+                    <h1>SUSCRIPCIÓN CANCELADA</h1>
                     <p class="mensaje">Hola '.$name.'.Acabas de cancelar tu suscripción a <span>'.$name_prove.'</span>.</p>
                     <div class="suscripcion">
-                    <img src="https://cdn-icons-png.flaticon.com/128/5268/5268671.png" alt="" class="img-service">
-                        <div class="datos">
-                            <table>
-                                <tr>
-                                    <td class="th">Plan</td>
-                                    <td>'.$plan.'</td>
-                                </tr>
-                                <tr>
-                                    <td class="th">Precio</td>
-                                    <td>S/'.$precio.'</td>
-                                </tr>
-                            </table>
-                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/128/5268/5268671.png" alt="" class="img-service">                       
                     </div>
                 </div> 
                 <div class="footer">
