@@ -57,7 +57,7 @@
                     $tarjeta = $rows['tarjeta'];
                     $image = $rows['image'];
                     echo'
-                        <article class="suscripcion">
+                        <article class="suscripcion table-responsive">
                             <div class="opciones">
                                 <a href="eli_sus.php?id="'.$id_sus.'" style="--bg:#EE3F4F;" title="Anular suscripción"><i class="fa-solid fa-bell-slash"></i></a>
                                 <a href="edi_sus.php?id="'.$id_sus.'" style="--bg:var(--bg-cyan);" title="Cambiar plan"><i class="fa-solid fa-pen-to-square"></i></a>

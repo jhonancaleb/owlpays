@@ -192,7 +192,6 @@ ol.menu li i{
     position: absolute;
     right: 0;
     top: 17px;
-    width: 7em;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -214,6 +213,7 @@ ol.menu li i{
     font-size: var(--size);
 }
 .suscripcion table{
+    position: relative;
     width: 100%;
     text-align: center;
     border: 1px solid var(--color-blue);
@@ -223,21 +223,25 @@ ol.menu li i{
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     margin:35px auto 5px;
+    caption-side:top !important;
+}
+.table-responsive{
+    overflow:auto;
 }
 .suscripcion table caption { 
-    display: table-caption;
+    display: table-caption !important;
     text-align: left;
     font-family: var(--font-odibee);
     font-size:19px;
     letter-spacing:2px;
 }
-.suscripcion table:hover{
-    transform:scale(1.03);
-    -webkit-transform:scale(1.03);
-    -moz-transform:scale(1.03);
-    -ms-transform:scale(1.03);
-    -o-transform:scale(1.03);
-}
+/* .suscripcion table:hover{
+    transform:scale(1.00);
+    -webkit-transform:scale(1.00);
+    -moz-transform:scale(1.00);
+    -ms-transform:scale(1.00);
+    -o-transform:scale(1.00);
+} */
 .suscripcion table thead{
     background: var(--bg-yellow-hover);
     color:white;
@@ -250,6 +254,10 @@ ol.menu li i{
 }
 .suscripcion table tbody:hover{
     background: var(--color-light-grey);
+}
+.suscripcion table tbody td{
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .suscripcion table tbody .servicio{
     display:flex;
@@ -301,6 +309,25 @@ ol.menu li i{
 .aviso img{
     width: 300px;
     height: 300px;
+}
+@media screen and (max-width:697px){
+    .container-sus{
+        font-size: var(--size-small);
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+    .suscripcion .opciones a{
+        width: 25px;
+        height: 23px;
+        font-size: var(--size-small);
+    }
+    .suscripcion .opciones{
+        position: absolute;
+        right: -5px;
+    }
+    .total{
+        font-size: var(--size-small);
+    }
 }
 
 
