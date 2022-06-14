@@ -34,8 +34,8 @@
                 }
                 .container-mensaje{
                     position: relative;
-                    width: 30em;
-                    height: 35em;
+                    width: 35em;
+                    height: 41em;
                     padding: 10px 40px;
                     background: #f3f1f1;
                     border:3px solid #e6dfdf;
@@ -100,7 +100,7 @@
                     bottom: 20px;
                     left:50%;
                     transform: translate(-50%,-50%);
-                    width:90%;
+                    width:100%;
                     text-align: center;
                     font-size:12px;
                 }
@@ -143,6 +143,11 @@
             <h4 class="ok">
             <i class="fa-solid fa-check"></i> Solicitud recibida. Le enviaremos un correo.
             </h4>
+            <script>
+                setTimeout(function(){
+                    top.location.reload();
+                },1500);
+            </script>
             ';
         }
         else{

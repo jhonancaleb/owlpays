@@ -68,7 +68,7 @@
                 }
                 .container-mensaje{
                     width: 35em;
-                    height: 38em;
+                    height: 39em;
                     padding: 10px 40px;
                     border:3px solid rgb(230, 223, 223);
                 }
