@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="proveedor.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a8527aea5d.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -49,101 +50,52 @@
         <div class="content-proves">
             <div class="buscador">
                 <ul>
-                    <li><a href="usuarios.php">LISTA DE USUARIOS</a></li>
+                    <li onclick="search();"><a>LISTA DE USUARIOS</a></li>
                 </ul>
-                <form action="usuarios.php" method="post">
-                    <input type="text" name="tx_usu" id="" class="input" placeholder="Escriba el usuario" required>
-                    <input type="submit" value="Buscar" class="submit">
+                <form method="post">
+                    <input type="text" name="tx_usu" id="tx_usu" class="input" placeholder="Escriba el usuario" required>
                 </form>
             </div>
-            <table id="tabla">
-                <th>DNI</th>
-                <th>NOMBRE</th>
-                <th>CORREO</th>
-                <th>TELEFONO</th>
-                <th>PASSWORD</th>
-                <th>TIPO</th>
-                <th>RECIBO</th>
-                <?php
-                    include 'conectar.php';
-                    if(!empty($_POST['tx_usu'])=="")
-                    {  
-                        $sql_prod ="SELECT * FROM usuarios order by tipo asc";  
-                        $result_prod = $db_connect -> query($sql_prod);
-                        if($result_prod -> num_rows > 0) {
-                            while ( $rows = $result_prod -> fetch_assoc() ) {
-                                $DNI = $rows['dni_cliente'];
-                                $NOMBRE = $rows['nombres'];
-                                $CORREO = $rows['correo'];
-                                $TELEFONO = $rows['telefono'];
-                                $PASSWORD = $rows['password'];
-                                $TIPO = $rows['tipo'];
-                                if($TIPO==1){
-                                    $TIPO_letra='ADMINISTRADOR';
-                                }
-                                elseif($TIPO==2){
-                                    $TIPO_letra='USUARIO';
-                                }
-                                echo'
-                                 <tr>
-                                     <td>'.$DNI.'</td>
-                                     <td class="nombres">'.$NOMBRE.'</td>
-                                     <td>'.$CORREO.'</td>
-                                     <td>'.$TELEFONO.'</td>
-                                     <td>'.$PASSWORD.'</td>
-                                     <td>'.$TIPO_letra.'</td>
-                                     <td><a href="recibo.php?u='.$DNI.'" target="_blank"><img src="../../img/recibo.png" alt="recibo" title="Generar recibo"></a></td>
-                                 </tr>
-                                ';
-                            }
-                        } 
-                    }
-                    else
-                    {
-                        $prove=$_POST['tx_usu'];
-                        $sql_prod ="SELECT * FROM usuarios WHERE nombres LIKE '%".$prove."%' order by tipo asc";  
-                        $result_prod = $db_connect -> query($sql_prod);
-                        if($result_prod -> num_rows > 0) {
-                            while ( $rows = $result_prod -> fetch_assoc() ) {
-                                $DNI = $rows['dni_cliente'];
-                                $NOMBRE = $rows['nombres'];
-                                $CORREO = $rows['correo'];
-                                $TELEFONO = $rows['telefono'];
-                                $PASSWORD = $rows['password'];
-                                $TIPO = $rows['tipo'];
-                                echo'
-                                 <tr>
-                                     <td>'.$DNI.'</td>
-                                     <td class="nombres">'.$NOMBRE.'</td>
-                                     <td>'.$CORREO.'</td>
-                                     <td>'.$TELEFONO.'</td>
-                                     <td>'.$PASSWORD.'</td>
-                                     <td>'.$TIPO.'</td>
-                                     <td><a href="recibo.php?u='.$DNI.'"" target="_blank"><img src="../../img/recibo.png" alt="recibo" title="Generar recibo"></a></td>
-                                 </tr>
-                                ';
-                            }
-                        } 
-                        else{
-                            echo'
-                                <tr>
-                                    <td colspan=7>
-                                        <div class="nohay">
-                                            <img src="../../img/vacio.png" alt="vacio">
-                                            <p>No hay usuarios que coincidan con "'.$prove.'"</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ';
-                        }
-                    }   
-                ?>
-            </table>
-            <iframe src="" frameborder="0" name="frame_cat" id="Iframe"></iframe>
+            <div class="container-table">
+                <table id="tabla">
+                    <thead>
+                        <th>DNI</th>
+                        <th>NOMBRE</th>
+                        <th>CORREO</th>
+                        <th>TELEFONO</th>
+                        <th>PASSWORD</th>
+                        <th>TIPO</th>
+                        <th>RECIBO</th>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>                    
+                </table>
+            </div>
         </div>
     </div>
     <script>
-        
+        $(search());
+        function search(consulta){
+            $.ajax({
+                type: "post",
+                url: "usu_search.php",
+                dataType: "html",
+                data: {consulta:consulta},
+                success: function (r) {
+                    $("#tbody").html(r);
+                }
+            });
+        }
+        let campo=document.querySelector('#tx_usu');
+        campo.onkeyup=function() {
+            var valor=campo.value;
+            if (valor ==""){
+                search();
+            }
+            else{
+                search(valor);
+            }
+        };
     </script>
 </body>
 </html>

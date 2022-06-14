@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="proveedor.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a8527aea5d.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -58,107 +59,63 @@
         <div class="content-proves">
             <div class="buscador">
                 <ul>
-                    <li><a href="proveedores.php">TODOS</a></li>
-                    <li><a href="prove_cat.php?cat=STREAMING" target="frame_cat" onclick="mostrar();">STREAMING</a></li>
-                    <li><a href="prove_cat.php?cat=DISEÑO" target="frame_cat" onclick="mostrar();">DISEÑO</a></li>
-                    <li><a href="prove_cat.php?cat=EDUCACIÓN" target="frame_cat" onclick="mostrar();">EDUCACION</a></li>
-                    <li><a href="prove_cat.php?cat=NUBE" target="frame_cat" onclick="mostrar();">NUBE</a></li>
+                    <li onclick="search();">TODOS</li>
+                    <?php
+                        include 'conectar.php';
+                        $sql_prod ="SELECT * FROM categorias";  
+                        $result_prod = $db_connect -> query($sql_prod);
+                        if($result_prod -> num_rows > 0) {
+                            while ( $fila = $result_prod -> fetch_assoc() ) {
+                                ?>
+                                    <li onclick="search('<?php echo $fila['nombre']; ?>');"><a><?php echo $fila['nombre']; ?></a></li>                         
+                                <?php
+                            }
+                        }
+                    ?>
                 </ul>
-                <form action="proveedores.php" method="post">
-                    <input type="text" name="tx_prove" id="" class="input" placeholder="Escriba el proveedor" required>
-                    <input type="submit" value="Buscar" class="submit">
+                <form method="post">
+                    <input type="text" name="tx_prove" id="tx_prove" class="input" placeholder="Escriba el proveedor" required>
                 </form>
             </div>
-            <table id="tabla">
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Plan Básico</th>
-                <th>Plan Estándar</th>
-                <th>Plan Premium</th>
-                <th>Logo</th>
-                <?php
-                    include 'conectar.php';
-                    if(!empty($_POST['tx_prove'])=="")
-                    {  
-                        $sql_prod ="SELECT * FROM proveedores";  
-                        $result_prod = $db_connect -> query($sql_prod);
-                        if($result_prod -> num_rows > 0) {
-                            while ( $rows = $result_prod -> fetch_assoc() ) {
-                                $code = $rows['id_proveedor'];
-                                $name = $rows['nombre'];
-                                $cate = $rows['categoria'];
-                                $plan1 = $rows['plan1'];
-                                $plan2 = $rows['plan2'];
-                                $plan3 = $rows['plan3'];
-                                $imagen = $rows['image'];
-                                echo'
-                                 <tr>
-                                     <td>'.$code.'</td>
-                                     <td class="nombres">'.$name.'</td>
-                                     <td>'.$cate.'</td>
-                                     <td>'.$plan1.'</td>
-                                     <td>'.$plan2.'</td>
-                                     <td>'.$plan3.'</td>
-                                     <td><img src="data:image/jpg;base64,'.base64_encode($imagen).'" alt="'.$name.'"></td>
-                                 </tr>
-                                ';
-                            }
-                        } 
-                    }
-                    else
-                    {
-                        $prove=$_POST['tx_prove'];
-                        $sql_prod ="SELECT * FROM proveedores WHERE nombre LIKE '%".$prove."%'";  
-                        $result_prod = $db_connect -> query($sql_prod);
-                        if($result_prod -> num_rows > 0) {
-                            while ( $rows = $result_prod -> fetch_assoc() ) {
-                                $code = $rows['id_proveedor'];
-                                $name = $rows['nombre'];
-                                $cate = $rows['categoria'];
-                                $plan1 = $rows['plan1'];
-                                $plan2 = $rows['plan2'];
-                                $plan3 = $rows['plan3'];
-                                $imagen = $rows['image'];
-                                echo'
-                                 <tr>
-                                     <td>'.$code.'</td>
-                                     <td class="nombres">'.$name.'</td>
-                                     <td>'.$cate.'</td>
-                                     <td>'.$plan1.'</td>
-                                     <td>'.$plan2.'</td>
-                                     <td>'.$plan3.'</td>
-                                     <td><img src="data:image/jpg;base64,'.base64_encode($imagen).'" alt="'.$name.'"></td>
-                                 </tr>
-                                ';
-                           }
-                        } 
-                        else{
-                            echo'
-                                <tr>
-                                    <td colspan=7>
-                                        <div class="nohay">
-                                            <img src="../../img/vacio.png" alt="vacio">
-                                            <p>No hay proveedores que coincidan con "'.$prove.'"</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ';
-                        }
-                    }   
-                ?>
-            </table>
-            <iframe src="" frameborder="0" name="frame_cat" id="Iframe"></iframe>
+            <div class="container-table">
+                <table id="tabla">
+                    <thead>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Plan Básico</th>
+                        <th>Plan Estándar</th>
+                        <th>Plan Premium</th>
+                        <th>Logo</th>
+                    </thead>
+                    <tbody id="tbody"></tbody>              
+                </table>
+            </div>           
         </div>
     </div>
     <script>
-        // Selecting the iframe element
-        let frame = document.getElementById("Iframe");
-        let tabla = document.getElementById("tabla");
-        function mostrar(){
-            tabla.style.display = "none";
-            frame.style.display = "block";
+        $(search());
+        function search(consulta){
+            $.ajax({
+                type: "post",
+                url: "prove_search.php",
+                dataType: "html",
+                data: {consulta:consulta},
+                success: function (r) {
+                    $("#tbody").html(r);
+                }
+            });
         }
-        </script>
+        let campo=document.querySelector('#tx_prove');
+        campo.onkeyup=function() {
+            var valor=campo.value;
+            if (valor ==""){
+                search();
+            }
+            else{
+                search(valor);
+            }
+        };
+    </script>
 </body>
 </html>
