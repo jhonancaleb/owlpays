@@ -34,7 +34,7 @@ img{
 body{
     display:flex;
     width: 200%;
-    overflow: hidden;
+    overflow-x:hidden;
 }
 .container{
     position: relative;
